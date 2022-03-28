@@ -10,6 +10,17 @@ Text Domain: metamedicina
 :root{
     --main-red: #c2000b;
     --main-grey: #f2f2f2;
+    --main-font: 'Montserrat Alternates', sans-serif;
+    --secondary-font: 'Bubbler One', sans-serif;
+}
+
+body{
+    font-family: var(--main-font);
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: var(--main-font);
+    font-weight: bold
 }
 
 .grey_bg{
@@ -17,6 +28,61 @@ Text Domain: metamedicina
 }
 .red_bg{
     background-color: var(--main-red);
+}
+
+
+
+/*
+*
+Header
+*
+*/
+
+/*top bar*/
+.email-col{
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+}
+.email-col a{
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+.language-col{
+    display: flex;
+    justify-content:flex-end;
+}
+
+/*main bar*/
+#menu, #menu .menu-main-container, #menu ul {
+    height: 100%;
+}
+
+#menu ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content:flex-end;
+    align-items: center;
+    gap:20px
+}
+#menu ul a{
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: var(--secondary-font);
+    font-size: 1.30rem;
+}
+.email-col {
+    display: flex;
+    align-items: center;
+}
+
+#main-logo img{
+    width: 280px;
 }
 
 /*
