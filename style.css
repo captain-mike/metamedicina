@@ -6,3 +6,26 @@ Version: 1.0
 Text Domain: metamedicina
 
 */
+
+:root{
+    --main-red: #c2000b;
+    --main-grey: #f2f2f2;
+}
+
+.grey_bg{
+    background-color: var(--main-grey);
+}
+.red_bg{
+    background-color: var(--main-red);
+}
+
+/*
+*
+Footer
+*
+*/
+
+#newsletter{
+    color: #fff;
+    text-align: center;
+}
