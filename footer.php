@@ -1,10 +1,10 @@
 </div>
 <footer id="footer" role="contentinfo">
     <div id="disclaimer">
-        <div class="container grey_bg text-center">
+        <div class="container grey_bg">
             <small>
-                <b>La Metamedicina non intende sostituirsi ai percorsi indicati dalla medicina ufficiale né sostituire alcuna terapia psicologica.</b><br>
-                Può invece rivelarsi molto efficace come sostegno ed integrazione a un percorso evolutivo personale. I consulenti di Metamedicina non svolgono attività diagnostica, non prescrivono farmaci e non si sostituiscono alle figure ufficiali di riferimento; accompagnano la persona a prendere coscienza delle proprie dinamiche emozionali, fisiche e mentali attraverso le chiavi della Metamedicina per tornare in accordo con sè stessi.
+                <b><?=_('Metamedicine is not intedended as a substitute for treatment prescribed by a doctor/physician, therapist or psychiatrist. However, it can be an effective support and integration of a personal evolutionary path.')?></b>
+                <?=_('Its aim is personal introspection and encourages better collaboration between patient and doctor. Metamedicine consultants do not perform diagnostic activities, do not prescribe medications and do not replace the referenced roles. A Metamedicine consultant is trained to listen deeply and guide the person to become aware of the cause of the emotional, physical and mental dynamics through the keys of Metamedicine; he/she accompanies you to free yourself and regain your own harmony.')?>
             </small>
         </div>
     </div>
@@ -25,8 +25,8 @@
             </div>
         </div>
     </div>
-    <div id="copyright">
-        <div class="container grey_bg text-center py-3">
+    <div id="copyright" class="grey_bg text-center py-3">
+        <div class="container ">
             <div class="custom">
                 <a href="/privacy-policy.html">PRIVACY POLICY</a> | <a href="/cookie-policy.html">COOKIE POLICY</a>
                 <p >Copyright © 2018 Metamedicina di Claudia Rainville • Note legali • Tutti i diritti riservati</p>

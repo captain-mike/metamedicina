@@ -84,6 +84,34 @@ Header
 #main-logo img{
     width: 280px;
 }
+/*
+*
+Pages
+*
+*/
+.page-title{
+    color: #fff;
+    text-align: center;
+    font-style: italic;
+    font-size: 4.5rem;
+}
+
+/*home template*/
+.calendar-icon{
+    text-align: center;
+}
+.calendar-icon img{
+    height: 100px;
+}
+.calendar-icon a{
+    text-transform: uppercase;
+    display:inline-block;
+    color: #000;
+}
+.calendar-icon h3{
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
 
 /*
 *
@@ -94,4 +122,10 @@ Footer
 #newsletter{
     color: #fff;
     text-align: center;
+}
+
+#disclaimer small {
+    padding: 10px;
+    display: block;
+    font-size: .75rem;
 }

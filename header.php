@@ -18,7 +18,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-4 email-col">
-                            Contattaci: <a href="mailto:italia@metamedecine.com">italia@metamedecine.com</a>
+                            <?=_('Contact us')?>: <a href="mailto:italia@metamedecine.com">italia@metamedecine.com</a>
                         </div>
                         <div class="col-8 language-col">
                             <?php do_action('wpml_add_language_selector'); ?>
@@ -30,9 +30,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-4">
-                            <div id="main-logo" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+                            <a href="/" id="main-logo" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
                                 <img src="<?=get_template_directory_uri()?>/img/logo-metamedicina.png" alt="">
-                            </div>
+                            </a>
                         </div>
                         <div class="col-8">
                             <nav id="menu" role="navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
@@ -43,6 +43,6 @@
                 </div>
             </div>
         </header>
-        <div id="container">
+        <div class="container">
             
            
