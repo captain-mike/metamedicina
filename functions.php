@@ -32,6 +32,7 @@ function metamedicina_notice_dismissed(){
 add_action('wp_enqueue_scripts', 'metamedicina_enqueue');
 function metamedicina_enqueue(){
     wp_enqueue_style('bootstrap', get_template_directory_uri().'/node_modules/bootstrap/dist/css/bootstrap.min.css');
+    wp_enqueue_style('bootstrap-icons', get_template_directory_uri().'/node_modules/bootstrap-icons/font/bootstrap-icons.css');
     wp_enqueue_style('metamedicina-style', get_stylesheet_uri());
     wp_enqueue_script('jquery');
 }
@@ -118,7 +119,7 @@ function metamedicina_read_more_link(){
         return ' <a href="' . esc_url(get_permalink()) . '" class="more-link">' . sprintf(__('...%s', 'metamedicina'), '<span class="screen-reader-text">  ' . esc_html(get_the_title()) . '</span>') . '</a>';
     }
 }
-add_filter('excerpt_more', 'metamedicina_excerpt_read_more_link');
+//add_filter('excerpt_more', 'metamedicina_excerpt_read_more_link');
 
 function metamedicina_excerpt_read_more_link($more){
     if (!is_admin()) {
