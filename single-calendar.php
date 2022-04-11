@@ -31,23 +31,23 @@ function getStringsByKey($key){
 <div class="container mt-3">
     <div class="row text-center">
         <div class="col calendar-icon-block">
-            Inizio<br> <i class="bi bi-calendar-heart"></i>
+            <b>Inizio</b><br> <i class="bi bi-calendar-heart"></i>
             <p><?php the_field('start')?></p>
         </div>
         <div class="col calendar-icon-block">
-            Fine<br> <i class="bi bi-calendar-x"></i>
+            <b>Fine</b><br> <i class="bi bi-calendar-x"></i>
             <p><?php the_field('end')?></p>
         </div>
         <div class="col calendar-icon-block">
-            Luogo<br> <i class="bi bi-geo-alt"></i>
+            <b>Luogo</b><br> <i class="bi bi-geo-alt"></i>
             <p><?php the_field('indirizzo')?></p>
         </div>
         <div class="col calendar-icon-block">
-            Teleefono<br> <i class="bi bi-telephone"></i>
+            <b>Telefono</b><br> <i class="bi bi-telephone"></i>
             <p><?=getStringsByKey('tel')?></p>
         </div>
         <div class="col calendar-icon-block">
-            E-mail<br> <i class="bi bi-envelope"></i>
+            <b>E-mail</b><br> <i class="bi bi-envelope"></i>
             <p><?=getStringsByKey('e-mail')?></p>
         </div>
     </div>
@@ -55,10 +55,11 @@ function getStringsByKey($key){
 
 <div class="container mt-4">
     <div class="row">
-        <main class="col-12 col-md-8">
-        <h1 class="page-title py-2 red_bg mb-2">
+        <main class="col-12 col-md-8 calendar-main">
+        <h1 class="page-title py-2 red_bg mb-4">
             <?php the_title() ?>
         </h1>
+            <span class="calendar-detail-thumbnail"><?=the_post_thumbnail()?></span>
             <?php the_content() ?>
         </main>
         <aside id="calendar-sidebar" class="col-12 col-md-4">
@@ -69,7 +70,7 @@ function getStringsByKey($key){
                         foreach($trainers as $person){
                             $id = $person->ID;?>
                             <div class="col text-center">
-                                <img class="img-responsive trainer-foto" src="<?=get_the_post_thumbnail_url($id,'medium_large');?>" alt="trainer">
+                                <img class="img-responsive trainer-foto" src="<?=get_the_post_thumbnail_url($id,'thumbnail');?>" alt="trainer">
                                 <p class="mt-2"><?php echo $person->post_title; ?></p>
                             </div>
                     <?php } ?>
@@ -78,14 +79,20 @@ function getStringsByKey($key){
             
             <div class="calendar-price">
                 <h3>Costi e promozioni:</h3>
-                <div class="row">
+                <div class="row mt-4">
                    <div class="col-12">
-                       <?php the_field('price') ?>
+                       <b>Costo:</b> <?php the_field('price') ?>
                    </div>
                 </div>
-                <div class="row">
+                <div class="row mt-4">
                    <div class="col-12">
-                       <?php the_field('promo') ?>
+                       <?php 
+                       if(!empty(get_field('promo'))){
+                           echo '<b>Promo:</b> ' . get_field('promo'); 
+                        }else{
+                            echo 'Nessuna promozione attiva'; 
+                       }
+                       ?>
                    </div>
                 </div>
             </div>

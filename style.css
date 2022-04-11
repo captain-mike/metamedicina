@@ -114,6 +114,13 @@ Header
 Pages
 *
 */
+#breadcrumbs {
+    padding: 15px;
+}
+.breadcrumb-wrapper{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
 .page-title{
     color: #fff;
     text-align: center;
@@ -131,6 +138,31 @@ Pages
     margin-bottom: 30px;
 }
 
+.owl-carousel .owl-item > div{
+    height: 500px;
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.owl-nav {
+    position: absolute;
+    width: 100%;
+    top: calc(50% - 25px);
+    height: 50px;
+}
+button.owl-prev, button.owl-next {
+    position: absolute;
+}
+button.owl-prev span, button.owl-next span {
+    font-size: 4rem;
+    line-height: 50px;
+}
+button.owl-prev {
+    left: 0;
+}
+button.owl-next{
+    right: 0;
+}
 
 
 /*home template*/
@@ -219,6 +251,18 @@ Calendars
     border-radius: 5px;
     font-size: 2.5rem;
 }
+
+.calendar-main ul{
+    padding-left: 40px;
+}
+
+.calendar-detail-thumbnail{
+    float: right;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    display: block;
+}
+
 #calendar-sidebar > div{
     background-color: var(--main-grey);
     border-radius: 10px;
