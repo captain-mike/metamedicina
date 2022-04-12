@@ -34,6 +34,8 @@ function metamedicina_enqueue(){
     wp_enqueue_style('bootstrap', get_template_directory_uri().'/node_modules/bootstrap/dist/css/bootstrap.min.css');
     wp_enqueue_style('bootstrap-icons', get_template_directory_uri().'/node_modules/bootstrap-icons/font/bootstrap-icons.css');
     wp_enqueue_style('owl-carousel-css', get_template_directory_uri().'/node_modules/owl.carousel/dist/assets/owl.carousel.min.css');
+    wp_enqueue_style('owl-carousel-css', get_template_directory_uri().'/node_modules/owl.carousel/dist/assets/owl.carousel.min.css');
+    wp_enqueue_style('animate-css', get_template_directory_uri().'/node_modules/animate.css/animate.min.css');
     wp_enqueue_style('owl-carousel-theme-css', get_template_directory_uri().'/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css');
     wp_enqueue_style('metamedicina-style', get_stylesheet_uri(),'',rand(0,9999));
 
