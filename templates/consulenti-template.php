@@ -56,7 +56,7 @@ get_header(); ?>
                         $role = $profile->ruolo;
                         ?>
                         <div class="col text-center grey_bg main-trainer-block">
-                                <img class="img-responsive trainer-foto" src="<?=get_the_post_thumbnail_url($id,'thumbnail');?>" alt="<?=$nome?>">
+                                <img loading="lazy" class="img-responsive trainer-foto" src="<?=get_the_post_thumbnail_url($id,'thumbnail');?>" alt="<?=$nome?>">
                                 <div class="mt-3">
                                     <a href="<?=$profile->guid?>" class="mb-0"><?=$nome?></a>
                                 </div>
@@ -96,7 +96,7 @@ get_header(); ?>
         <article class="col-3 mb-5 trainers-block text-center">
             <div class="main-content">
                 <a href="<?php the_permalink()?>">
-                    <img src="<?php the_post_thumbnail_url()?>)">
+                    <img loading="lazy" src="<?php the_post_thumbnail_url()?>)">
                 </a>
                 <a href="<?php the_permalink()?>" class=" trainers-details">
                     <h3 class="trainer-title"><?php the_title()?></h3>

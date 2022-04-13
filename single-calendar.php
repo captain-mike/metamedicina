@@ -70,7 +70,7 @@ function getStringsByKey($key){
                         foreach($trainers as $person){
                             $id = $person->ID;?>
                             <div class="col text-center">
-                                <img class="img-responsive trainer-foto" src="<?=get_the_post_thumbnail_url($id,'thumbnail');?>" alt="trainer">
+                                <img loading="lazy" class="img-responsive trainer-foto" src="<?=get_the_post_thumbnail_url($id,'thumbnail');?>" alt="trainer">
                                 <p class="mt-2"><?php echo $person->post_title; ?></p>
                             </div>
                     <?php } ?>

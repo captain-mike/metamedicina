@@ -34,18 +34,43 @@ function metamedicina_enqueue(){
     wp_enqueue_style('bootstrap', get_template_directory_uri().'/node_modules/bootstrap/dist/css/bootstrap.min.css');
     wp_enqueue_style('bootstrap-icons', get_template_directory_uri().'/node_modules/bootstrap-icons/font/bootstrap-icons.css');
     wp_enqueue_style('owl-carousel-css', get_template_directory_uri().'/node_modules/owl.carousel/dist/assets/owl.carousel.min.css');
-    wp_enqueue_style('owl-carousel-css', get_template_directory_uri().'/node_modules/owl.carousel/dist/assets/owl.carousel.min.css');
     wp_enqueue_style('animate-css', get_template_directory_uri().'/node_modules/animate.css/animate.min.css');
     wp_enqueue_style('owl-carousel-theme-css', get_template_directory_uri().'/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css');
     wp_enqueue_style('metamedicina-style', get_stylesheet_uri(),'',rand(0,9999));
+    wp_enqueue_style('calendar-main', get_template_directory_uri().'/node_modules/fullcalendar/main.css'); 
 
 
     wp_enqueue_script('jquery');
     wp_enqueue_script('owl-carousel', get_template_directory_uri().'/node_modules/owl.carousel/dist/owl.carousel.min.js');
-    wp_enqueue_script('scripts', get_template_directory_uri().'/js/scripts.js');
+    wp_enqueue_script('calendar-main', get_template_directory_uri().'/node_modules/fullcalendar/main.js');
+    wp_enqueue_script('scripts', get_template_directory_uri().'/js/scripts.js',['calendar-main']);
 }
 
 add_action('wp_footer', 'metamedicina_footer');
+
+
+add_filter( 'rest_calendar_query', function( $args ) {
+
+    $filters = [
+         'relation' => 'AND',
+    ];
+
+    foreach($_GET as $key => $value){
+         $filter = [
+              'key' => $key,
+              'value' => $value,
+              'compare' => 'like'
+         ];
+         array_push($filters, $filter);
+    }
+
+    $args['meta_query'] = $filters;
+
+    return $args;
+} );
+
+/* js modules */
+
 function metamedicina_footer(){
 ?>
     <script>
