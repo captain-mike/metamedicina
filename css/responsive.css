@@ -1,0 +1,130 @@
+@media screen and (max-width:1280px) {
+
+    .page-title {
+        font-size: 3.5rem;
+    }
+
+    .page-template-home-template #hero {
+        height: 420px;
+        overflow: hidden;
+    }
+
+    .page-template-home-template #hero img {
+        max-height: none;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    /* mobile menu*/
+
+    .mobile-bar {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    button.toggle {
+        border: 1px solid #7d7d7d;
+        font-size: 1.5rem;
+        background-color: #fff;
+        color: var(--main-red);
+        align-self: flex-end;
+        border: none;
+    }
+
+    button.toggle.open {
+        position: fixed;
+        z-index: 101;
+    }
+
+    nav#menu {
+        margin-right: -70vw;
+        position: fixed;
+        height: 100vh;
+        width: 70vw;
+        background-color: var(--main-grey);
+        top: 0;
+        right: 0;
+        z-index: 100;
+        transition: all 0.3s;
+        box-shadow: -4px 0px 16px #000;
+    }
+    
+
+    nav#menu.open {
+        margin-right: 0;
+    }
+
+    nav#menu a {
+        color: #000
+    }
+
+    #menu ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        position: relative;
+    }
+
+    :root{
+        --sub-menu-right : -80%;
+    }
+    
+
+    #menu .menu-item-has-children {
+        position: static
+    }
+    #menu .close-sub-menu {
+        position: absolute;
+        right: -5px;
+        width: 124px;
+        text-align: center;
+        padding: 5px;
+        font-size: 2.3rem;
+        top: 134px;
+        background-color: #8c0008;
+        color: #fff;
+        box-shadow: -3px 0 7px #000;
+        z-index: 101;
+        margin-right: calc(var(--sub-menu-right) );
+        transition: all 0.6s;
+        display:block
+    }
+    #menu .menu-item-has-children.open .close-sub-menu {
+        margin-right: 0;
+    }
+    #menu .menu-item-has-children .sub-menu, #menu .menu-item-has-children:hover .sub-menu {
+        height: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-right: var(--sub-menu-right);
+        height: 100%;
+        width: 80%;
+        flex-direction: column;
+        text-align: left;
+        box-shadow: -6px 0px 12px #000 !important;
+    }
+    #menu .menu-item-has-children.open .sub-menu {
+        margin-right: 0;
+        transition: all 0.3s;
+    }
+    #menu .menu-item-has-children.open .sub-menu a{
+        color: #fff
+    }
+
+}
+
+@media screen and (max-width:480px) {
+
+    nav#menu {
+        margin-right: -90vw;
+        width: 90vw;
+    }
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+}

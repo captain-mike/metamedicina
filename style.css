@@ -114,6 +114,13 @@ Header
     padding: 15px;
 }
 
+.mobile-bar{
+    display: none
+}
+.close-sub-menu{
+    display: none;
+}
+
 .email-col {
     display: flex;
     align-items: center;

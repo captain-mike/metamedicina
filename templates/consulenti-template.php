@@ -80,7 +80,7 @@ get_header(); ?>
     $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
     $args = [
         'post_type'         => 'trainer',
-        'posts_per_page'     => 20,
+        'posts_per_page'     => 18,
         'paged' => $paged
     ];
 
@@ -93,7 +93,7 @@ get_header(); ?>
             $icon_map = empty(get_field('indirizzo')) ? '' : '<i class="bi bi-geo-alt"></i>';
                 
         ?>
-        <article class="col-3 mb-5 trainers-block text-center">
+        <article class="col-4 mb-5 trainers-block text-center">
             <div class="main-content">
                 <a href="<?php the_permalink()?>">
                     <img loading="lazy" src="<?php the_post_thumbnail_url()?>)">

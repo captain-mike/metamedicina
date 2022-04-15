@@ -38,6 +38,7 @@ function metamedicina_enqueue(){
     wp_enqueue_style('owl-carousel-theme-css', get_template_directory_uri().'/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css');
     wp_enqueue_style('metamedicina-style', get_stylesheet_uri(),'',rand(0,9999));
     wp_enqueue_style('calendar-main', get_template_directory_uri().'/node_modules/fullcalendar/main.css'); 
+    wp_enqueue_style('responsive', get_template_directory_uri().'/css/responsive.css'); 
 
 
     wp_enqueue_script('jquery');

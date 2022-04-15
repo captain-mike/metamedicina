@@ -13,7 +13,7 @@ get_header();
     <?php the_content() ?>
 </section>
 
-<section id="calendar-icons" class="my-5 py-5">
+<section id="calendar-icons" class="my-lg-5 py-lg-5">
 
     <div class="row">
 

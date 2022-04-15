@@ -17,10 +17,10 @@
             <div id="top-bar" class="grey_bg">
                 <div class="container">
                     <div class="row">
-                        <div class="col-4 email-col">
+                        <div class="col-6 email-col">
                             <?=_('Contact us')?>: <a href="mailto:italia@metamedecine.com">italia@metamedecine.com</a>
                         </div>
-                        <div class="col-8 language-col">
+                        <div class="col-6 language-col">
                             <?php do_action('wpml_add_language_selector'); ?>
                         </div>
                     </div>
@@ -35,6 +35,9 @@
                             </a>
                         </div>
                         <div class="col-8">
+                            <div class="mobile-bar">
+                                <button class="toggle"><i class="bi bi-list"></i></button>
+                            </div>
                             <nav id="menu" role="navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
                                 <?php wp_nav_menu(array('theme_location' => 'main-menu', 'link_before' => '<span itemprop="name">', 'link_after' => '</span>')); ?>
                             </nav>
