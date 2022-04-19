@@ -12,6 +12,9 @@
 
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
+    <div id="loader">
+        <div class="image-logo"></div>
+    </div>
     <div id="wrapper" class="hfeed">
         <header id="header" role="banner">
             <div id="top-bar" class="grey_bg">

@@ -48,11 +48,55 @@ img{
 
 /*
 *
+Loader
+*
+*/
+
+#loader{
+    background-color: var(--main-red);
+    position:fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 1000;
+    perspective: 300;
+}
+#loader .image-logo{
+    background-image: url(img/logo_symbol.png);
+    width:200px;
+    height:200px;
+    background-size: cover;
+    background-position: center center;
+    left: calc(50% - 100px);
+    top: calc(50% - 100px);
+    position: fixed;
+    animation-name: rotate-logo, fadeIn-logo;
+    animation-duration: 10s, 0.3s;
+    animation-iteration-count: infinite, 1;
+    animation-timing-function: ease-in-out, linear;
+}
+
+@keyframes fadeIn-logo{
+    0%{opacity:0}
+    100%{opacity: 1;}
+}
+@keyframes rotate-logo{
+    0%{transform: rotate(0deg) }
+    50%{transform: rotate(90deg) }
+    100%{transform: rotate(0deg) }
+}
+
+/*
+*
 Header
 *
 */
 
 /*top bar*/
+#top-bar{
+    line-height: 30px;
+}
 .email-col{
     font-weight: 300;
     letter-spacing: 2px;

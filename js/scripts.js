@@ -1,4 +1,12 @@
 jQuery($ =>{
+
+    $('#loader').fadeOut('slow')
+    
+    window.onbeforeunload = function(){
+        $('#loader .image-logo').hide();
+        $('#loader').fadeIn('fast');
+    }
+
     $('.owl-carousel').owlCarousel({
         loop:true,
         responsiveClass:true,
@@ -111,12 +119,14 @@ clickOnThese('.menu-item-has-children', function(){
     /**
      * mobile info bar
      */
+    if(qs('#info-button') != null){
 
-    clickOnThis('#info-button',function(){
-
-        this.classList.toggle('open')
-        qs('#hidden-info').classList.toggle('open')
-        
-    })
+        clickOnThis('#info-button',function(){
+            
+            this.classList.toggle('open')
+            qs('#hidden-info').classList.toggle('open')
+            
+        })
+    }
 
 });

@@ -101,7 +101,7 @@ function getStringsByKey($key)
     </div>
 </div>
 
-<section id="mobile-detail-bar">
+<section id="mobile-detail-bar" class="d-lg-none">
     <div>
         <button id="info-button"><?= _('Info & prices') ?> <i class="bi bi-arrow-up-circle-fill"></i></button>
         <div id="hidden-info">
