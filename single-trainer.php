@@ -18,27 +18,27 @@ $id = get_the_ID();
 
 <div class="container mt-3">
     <div class="row text-center">
-        <div class="col-6 m-0 col-lg-4 calendar-icon-block">
+        <div class="col-6 col-sm-4 m-0 col-lg calendar-icon-block">
             <b><?=_('Lingue')?></b><br> 
             <i class="bi bi-translate"></i>
             <p><?php the_field('lingue')?></p>
         </div>
-        <div class="col-6 m-0 col-lg-4 calendar-icon-block">
+        <div class="col-6 col-sm-4 m-0 col-lg calendar-icon-block">
             <b><?=_('Luogo')?></b><br> 
             <i class="bi bi-geo-alt"></i>
             <p><?php the_field('luoghi')?></p>
         </div>
-        <div class="col-12 m-0 col-lg-6 calendar-icon-block">
+        <div class="col-12 col-sm-4 m-0 col-lg calendar-icon-block">
             <b><?=_('E-mail')?></b><br> 
             <i class="bi bi-envelope"></i>
             <p><?=get_field('e-mail')?></p>
         </div>
-        <div class="col-6 m-0 col-lg-4 calendar-icon-block">
+        <div class="col-6 m-0 col-lg calendar-icon-block">
             <b><?=_('Telefono')?></b><br> 
             <i class="bi bi-telephone"></i>
             <p><?=get_field('tel')?></p>
         </div>
-        <div class="col-6 m-0 col-lg-6 calendar-icon-block">
+        <div class="col-6 m-0 col-lg calendar-icon-block">
             <b><?=_('Sito')?></b><br> 
             <i class="bi bi-globe2"></i>
             <p><?=get_field('sito')?></p>

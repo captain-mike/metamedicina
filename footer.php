@@ -3,8 +3,7 @@
     <div id="disclaimer">
         <div class="container grey_bg">
             <small>
-                <b><?=_('Metamedicine is not intedended as a substitute for treatment prescribed by a doctor/physician, therapist or psychiatrist. However, it can be an effective support and integration of a personal evolutionary path.')?></b>
-                <?=_('Its aim is personal introspection and encourages better collaboration between patient and doctor. Metamedicine consultants do not perform diagnostic activities, do not prescribe medications and do not replace the referenced roles. A Metamedicine consultant is trained to listen deeply and guide the person to become aware of the cause of the emotional, physical and mental dynamics through the keys of Metamedicine; he/she accompanies you to free yourself and regain your own harmony.')?>
+                <?php dynamic_sidebar('disclaimer-area')?>
             </small>
         </div>
     </div>
