@@ -63,10 +63,16 @@ get_header(); ?>
                     <b><?=get_field('trainer')[0]->post_title ?></b> 
                     <i class="bi bi-person-video3"></i>
                 </div>
-                <time class="event-dates mb-3">
-                    <i class="bi bi-calendar-heart"></i>  <?php the_field('start') ?>
-                     - 
-                    <i class="bi bi-calendar2-check"></i> <?php the_field('end') ?>
+                <time class="event-dates mb-3 text-center text-sm-left">
+                    <span class="d-block d-sm-inline">
+                        <i class="bi bi-calendar-heart"></i>  <?php the_field('start') ?>
+                    </span>
+                    <?php if(get_field('start') != get_field('end')){?>
+                    <span class="d-none d-sm-inline"> - </span>
+                    <span class="d-block d-sm-inline">
+                        <i class="bi bi-calendar2-check"></i> <?php the_field('end') ?>
+                    </span>
+                    <?php } ?>
                 </time>
                
                 <h4 class="event-place"> <?=$icon_map?> <?php the_field('indirizzo') ?></h4>

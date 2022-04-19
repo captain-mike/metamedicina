@@ -106,11 +106,7 @@ function getStringsByKey($key)
         <button id="info-button"><?= _('Info & prices') ?> <i class="bi bi-arrow-up-circle-fill"></i></button>
         <div id="hidden-info">
             <div class="row text-center">
-                <div class="col-6 calendar-icon-block">
-                    <b><?=_('E-mail')?></b><br> 
-                    <i class="bi bi-envelope"></i>
-                    <p><?= getStringsByKey('e-mail') ?></p>
-                </div>
+
                 <div class="col-6  calendar-icon-block">
                     <?php
                     foreach ($trainers as $person) {
@@ -121,18 +117,28 @@ function getStringsByKey($key)
                         </div>
                     <?php } ?>
                 </div>
-                <div class="col-3 calendar-icon-block">
-                        <b><?=_('Costo')?>:</b> <?php the_field('price') ?>
-                </div>
-                <div class="col-9 calendar-icon-block">
+                <div class="col-6 calendar-icon-block">
+                    <b><?= _('Costo') ?>:</b> <?php the_field('price') ?>
+                    <div class="">
                         <?php
                         if (!empty(get_field('promo'))) {
-                            echo '<b>'._('Promo').':</b> ' . get_field('promo');
+                            echo '<b>' . _('Promo') . ':</b> ' . get_field('promo');
                         } else {
                             echo 'Nessuna promozione attiva';
                         }
                         ?>
+                    </div>
                 </div>
+                <div class="col-12 calendar-icon-block">
+                    <i class="bi bi-envelope"></i>
+                    <p><?= getStringsByKey('e-mail') ?></p>
+                </div>
+                <div class="col-12 col-sm d-sm-none calendar-icon-block">
+                    <i class="bi bi-telephone"></i>
+                    <p><?= getStringsByKey('tel') ?></p>
+                </div>
+
+
             </div>
         </div>
         <div id="main-info">
@@ -142,21 +148,21 @@ function getStringsByKey($key)
                     <p><b>Inizio:</b> <?php the_field('start') ?> <br> 
                     <b>Fine:</b> <?php the_field('end') ?></p>
                 </div>-->
-                <div class="col calendar-icon-block">
-                    <b><?=_('Inizio')?></b><br> 
+                <div class="col-4 col-sm calendar-icon-block">
+                    <b><?= _('Inizio') ?></b><br>
                     <i class="bi bi-calendar-heart"></i>
                     <p><?php the_field('start') ?></p>
                 </div>
-                <div class="col calendar-icon-block">
-                    <b><?=_('Fine')?></b><br> 
+                <div class="col-4 col-sm calendar-icon-block">
+                    <b><?= _('Fine') ?></b><br>
                     <i class="bi bi-calendar-x"></i>
                     <p><?php the_field('end') ?></p>
                 </div>
-                <div class="col calendar-icon-block">
+                <div class="col-4 col-sm calendar-icon-block">
                     <i class="bi bi-geo-alt"></i>
                     <p><?php the_field('indirizzo') ?></p>
                 </div>
-                <div class="col calendar-icon-block">
+                <div class="col-6 col-sm d-none d-sm-block calendar-icon-block">
                     <i class="bi bi-telephone"></i>
                     <p><?= getStringsByKey('tel') ?></p>
                 </div>

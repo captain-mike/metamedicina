@@ -17,10 +17,10 @@
             <div id="top-bar" class="grey_bg">
                 <div class="container">
                     <div class="row">
-                        <div class="col-6 email-col">
-                            <?=_('Contact us')?>: <a href="mailto:italia@metamedecine.com">italia@metamedecine.com</a>
+                        <div class="col-12 d-block d-sm-flex text-center col-sm-6 email-col">
+                            <span class="d-none d-sm-block"><?=_('Contact us')?>: </span><a href="mailto:italia@metamedecine.com">italia@metamedecine.com</a>
                         </div>
-                        <div class="col-6 language-col">
+                        <div class="col-12 d-block d-sm-flex text-center col-sm-6 language-col">
                             <?php do_action('wpml_add_language_selector'); ?>
                         </div>
                     </div>
@@ -29,12 +29,12 @@
             <div id="main-bar" class="red_bg py-4">
                 <div class="container">
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-9 col-sm-4">
                             <a href="/" id="main-logo" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
                                 <img src="<?=get_template_directory_uri()?>/img/logo-metamedicina.png" alt="">
                             </a>
                         </div>
-                        <div class="col-8">
+                        <div class="col-3 col-sm-8">
                             <div class="mobile-bar">
                                 <button class="toggle"><i class="bi bi-list"></i></button>
                             </div>

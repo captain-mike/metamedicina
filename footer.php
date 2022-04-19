@@ -10,17 +10,17 @@
     </div>
     <div id="newsletter" class="py-5 red_bg">
         <div class="container">
-            <div class="col offset-0 col-md-6 offset-3 mb-3">
+            <div class="col offset-0 col-md-6 offset-md-3 mb-3">
                 Sei interessato a sapere tutte le novità della Metamedicina e a tenerti informato sui corsi in partenza?
                 Iscriviti alla nostra newsletter a cadenza mensile!
             </div>
-            <div class="col offset-0 col-md-6 offset-3 mb-3">
+            <div class="col offset-0 col-md-6 offset-md-3 mb-3">
                 <input type="text" required placeholder="nome" class="form-control" id="name">
             </div>
-            <div class="col offset-0 col-md-6 offset-3 mb-3">
+            <div class="col offset-0 col-md-6 offset-md-3 mb-3">
                 <input type="email" required placeholder="email" class="form-control" id="psw">
             </div>
-            <div class="col offset-0 col-md-6 offset-3">
+            <div class="col offset-0 col-md-6 offset-md-3">
                 <div class="btn btn-primary">Iscriviti</div>
             </div>
         </div>

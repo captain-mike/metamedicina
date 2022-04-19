@@ -120,6 +120,10 @@
     .page-template-home-template #hero {
         height: 465px;
     }
+    /*trainers listing*/
+    .owl-carousel .owl-item > div{
+        height: 470px;
+    }
 }
 
 @media screen and (max-width:991px) {
@@ -130,6 +134,12 @@
     .page-template-home-template #hero {
         height: 345px;
     }
+    /*trainers listing*/
+    .owl-carousel .owl-item > div{
+        height: 349px;
+    }
+
+    /*event listing*/
     .event-date {
         bottom: auto;
     }
@@ -171,13 +181,15 @@
         display: inline-block;
         transition: transform 0.8s;
     }
+    
     div#hidden-info {
         height: 0;
         overflow: hidden;
     }
-    div#hidden-info.open{
-        height: 400px;
+    div#hidden-info.open {
+        height: 70vh;
         transition: height 0.8s;
+        overflow-y: auto;
     }
     #main-info .calendar-icon-block,
     div#hidden-info .calendar-icon-block{
@@ -189,11 +201,18 @@
     #main-info .calendar-icon-block i {
         font-size: 3rem;
     }
+    body.calendar-template-default{
+        padding-bottom: 170px;
+    }
 
 }
 @media screen and (max-width:768px) {
     .page-template-home-template #hero {
         height: 260px;
+    }
+    /*trainers listing*/
+    .owl-carousel .owl-item > div{
+        height: 349px;
     }
 
 }
@@ -202,7 +221,8 @@
     .page-template-home-template #hero {
         height: 200px;
     }
-
+    
+    
     nav#menu {
         margin-right: -90vw;
         width: 90vw;
@@ -210,5 +230,60 @@
     .page-title {
         font-size: 1.5rem;
     }
-
+    /*trainers listing*/
+    
+    .owl-carousel .owl-item > div {
+        height: 200px
+    }
+    /*trainers detail*/
+    .fc .fc-toolbar-title {
+        font-size: 1rem;
+    }
+    .fc .fc-view-harness {
+        height: 426px !important;
+        margin-bottom: 30px;
+    }
+    /*Calendar listing*/
+    .event-image {
+        height: 280px;
+    }
+    .page-numbers {
+        background-color: var(--main-grey);
+        color: #000;
+        padding: 5px 12px;
+    }
+    
+    /*calendar detail*/
+    #main-info .calendar-icon-block i {
+        font-size: 1rem;
+    }
+    #main-info .calendar-icon-block, div#hidden-info .calendar-icon-block {
+        padding: 0px;
+        margin-bottom: 0;
+        margin-top: 3px;
+    }
+    #main-info p {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .calendar-template-default .page-title {
+        font-size: 1.5rem;
+    }
+    #breadcrumbs {
+        padding: 7px;
+        font-size: 0.8rem;
+        margin-bottom: 5px !important;
+    }
+    
+}
+@media screen and (max-width:320px) {
+    .page-template-home-template #hero {
+        height: 146px;
+    }
+    .event-image {
+        height: 200px;
+    }
+    .owl-carousel .owl-item > div {
+        height: 148px
+    }
 }
