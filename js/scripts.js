@@ -53,6 +53,7 @@ clickOnThis('.mobile-bar .toggle', function(){
 clickOnThese('.menu-item-has-children', function(){
     
     this.classList.add('open')
+    qs('.mobile-bar .toggle').classList.add('d-none')
     let runtimeBtn = this.querySelector('.close-sub-menu')
     if(runtimeBtn == null){
         let div = document.createElement('div');
@@ -61,6 +62,7 @@ clickOnThese('.menu-item-has-children', function(){
         div.addEventListener('click', (e) => {
             e.stopPropagation();
             this.classList.remove('open')
+            qs('.mobile-bar .toggle').classList.remove('d-none')
         })
 
         this.prepend(div)
@@ -68,8 +70,7 @@ clickOnThese('.menu-item-has-children', function(){
 
 })
 
-
-    if(TRAINER_ID != undefined){
+    if(typeof TRAINER_ID !== 'undefined'){
         fetch('http://metamedicina.test/wp-json/wp/v2/calendar?trainer='+TRAINER_ID)
         .then(data => data.json())
         .then(data => {
@@ -105,4 +106,17 @@ clickOnThese('.menu-item-has-children', function(){
             calendar.render();
         });
     }
+
+
+    /**
+     * mobile info bar
+     */
+
+    clickOnThis('#info-button',function(){
+
+        this.classList.toggle('open')
+        qs('#hidden-info').classList.toggle('open')
+        
+    })
+
 });

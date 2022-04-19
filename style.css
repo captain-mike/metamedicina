@@ -100,7 +100,8 @@ Header
     overflow: hidden;
     position: absolute;
     flex-direction: column;
-    text-align: left
+    text-align: left;
+    background-color: var(--main-red);
 }
 #menu .menu-item-has-children .sub-menu li{
     width: 100%;
@@ -109,7 +110,6 @@ Header
 #menu .menu-item-has-children:hover .sub-menu{
     height: auto;
     box-shadow: 3px 3px 4px #620006;
-    background-color: var(--main-red);
     width: 260px;
     padding: 15px;
 }

@@ -15,7 +15,7 @@ get_header(); ?>
     <?php the_title() ?> in programma
 </h1>
 
-<section id="calendar-icons" class="my-5 py-5">
+<section id="calendar-icons" class="my-lg-5 py-5">
 
 
         <?php
@@ -48,15 +48,15 @@ get_header(); ?>
             $icon_map = empty(get_field('indirizzo')) ? '' : '<i class="bi bi-geo-alt"></i>';
                 
         ?>
-        <article class="row mb-3 calendar-row">
-            <a href="<?php the_permalink()?>" class="col-12 col-md-4">
+        <article class="row mb-5 mt-3 mt-lg-0 mb-lg-3 calendar-row">
+            <a href="<?php the_permalink()?>" class="col-12 col-lg-4">
                 <div class="event-image" style="background-image:url(<?php the_post_thumbnail_url()?>)">
                     <div class="event-date">
                         <?php the_field('start') ?>
                     </div>
                 </div>
             </href=>
-            <a href="<?php the_permalink()?>" class="col-12 col-md-8 calendar-details">
+            <a href="<?php the_permalink()?>" class="col-12 col-lg-8 calendar-details">
                 <h3 class="event-title"><?php the_title()?></h3>
                 <div class="event-trainer grey_bg mb-2">
                     Condotto da: 

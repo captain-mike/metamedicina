@@ -82,7 +82,7 @@
         text-align: center;
         padding: 5px;
         font-size: 2.3rem;
-        top: 134px;
+        top: 85px;
         background-color: #8c0008;
         color: #fff;
         box-shadow: -3px 0 7px #000;
@@ -105,6 +105,7 @@
         width: 80%;
         flex-direction: column;
         text-align: left;
+        padding: 15px;
         box-shadow: -6px 0px 12px #000 !important;
     }
     #menu .menu-item-has-children.open .sub-menu {
@@ -115,9 +116,92 @@
         color: #fff
     }
 
+    /*page*/
+    .page-template-home-template #hero {
+        height: 465px;
+    }
+}
+
+@media screen and (max-width:991px) {
+    .event-image {
+        height: 450px;
+        background-position: center;
+    }
+    .page-template-home-template #hero {
+        height: 345px;
+    }
+    .event-date {
+        bottom: auto;
+    }
+    .calendar-icon {
+        padding: 25px 0;
+    }
+    h3.event-title {
+        padding: 15px 0;
+    }
+    .event-dates {
+        padding: 7px 0;
+        display: block;
+    }
+    /*calendar detail*/
+    section#mobile-detail-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--main-grey);
+    }
+    button#info-button {
+        width: 100%;
+        background-color: var(--main-red);
+        border: none;
+        height: 48px;
+        text-transform: uppercase;
+        color: #fff;
+    }
+    button#info-button i {
+        font-size: 2rem;
+        vertical-align: middle;
+        margin-left: 5px;
+        transform: rotate(0deg);
+        transition: transform 0.8s;
+    }
+    button#info-button.open i {
+        transform: rotate(180deg);
+        display: inline-block;
+        transition: transform 0.8s;
+    }
+    div#hidden-info {
+        height: 0;
+        overflow: hidden;
+    }
+    div#hidden-info.open{
+        height: 400px;
+        transition: height 0.8s;
+    }
+    #main-info .calendar-icon-block,
+    div#hidden-info .calendar-icon-block{
+        border: none;
+        text-align: center;
+        padding: 0px;
+        margin: 15px 0;
+    }
+    #main-info .calendar-icon-block i {
+        font-size: 3rem;
+    }
+
+}
+@media screen and (max-width:768px) {
+    .page-template-home-template #hero {
+        height: 260px;
+    }
+
 }
 
 @media screen and (max-width:480px) {
+    .page-template-home-template #hero {
+        height: 200px;
+    }
 
     nav#menu {
         margin-right: -90vw;
