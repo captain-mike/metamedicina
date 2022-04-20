@@ -408,6 +408,36 @@ Calendars
     border-radius: 100%;
     max-width: 100%;
 }
+
+/*
+*books
+*/
+
+.book-3d-scene {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+.book-wrap {
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: all 0.3s;
+}
+.book-wrap:hover {
+    transform: rotateY(25deg);
+}
+/*
+.book-wrap .book-side {
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    background-color: var(--main-grey);
+    left: -100px;
+    transform: rotateY(-68deg);
+    transform-origin: right;
+}*/
+
+
 /*
 *
 Footer

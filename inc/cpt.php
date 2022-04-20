@@ -20,12 +20,27 @@ function create_posttype() {
     // CPT Options
         array(
             'labels' => array(
-                'name' => __( 'trainers' ),
-                'singular_name' => __( 'trainer' )
+                'name' => __( 'Trainers' ),
+                'singular_name' => __( 'Trainer' )
             ),
             'public' => true,
             'has_archive' => true,
             'rewrite' => array('slug' => 'trainers'),
+            'show_in_rest' => true,
+            'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields' ),
+        )
+    );
+    
+    register_post_type( 'book',
+    // CPT Options
+        array(
+            'labels' => array(
+                'name' => __( 'Books' ),
+                'singular_name' => __( 'Book' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'books'),
             'show_in_rest' => true,
             'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields' ),
         )
