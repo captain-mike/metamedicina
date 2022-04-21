@@ -44,7 +44,7 @@ get_header(); ?>
                         <img lazy="true" src="<?php the_post_thumbnail_url()?>">
                     </div>
                 </div>
-                <h3 class="event-title text-center"><?php the_title()?></h3>
+                <h3 class="book-title text-center"><?php the_title()?></h3>
             </a>
         </article>
         <?php

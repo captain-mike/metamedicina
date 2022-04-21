@@ -422,9 +422,26 @@ Calendars
     transform-style: preserve-3d;
     perspective: 1000px;
     transition: all 0.3s;
+    transform: translateZ(-250px);
 }
 .book-wrap:hover {
     transform: rotateY(25deg);
+}
+
+.book-detail-thumbnail{
+    float: left;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+#book-sidebar > div {
+    background-color: var(--main-grey);
+    padding: 15px;
+}
+.book-template-default .page-title {
+    font-size: 2.5rem;
+}
+.book-title{
+    font-size: 1.5rem;
 }
 /*
 .book-wrap .book-side {
