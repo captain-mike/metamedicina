@@ -41,7 +41,7 @@ function getStringsByKey($key)
                 <?php the_content() ?>
             </section>
         </main>
-        <aside id="book-sidebar" class="col-12 col-md-4 d-none d-lg-block">
+        <aside id="book-sidebar" class="col-12 col-lg-4">
             <div class="mb-1">
                 <b><?=_('Prima edizione:')?></b> <?php the_field('edition') ?>
             </div>

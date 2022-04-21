@@ -36,8 +36,9 @@ get_header(); ?>
             while($calendar->have_posts() ) : 
                 $calendar->the_post();        
                 ?>
-        <article class="col-4 mb-5 mt-3 mt-lg-0 mb-lg-3 book-item">
-            <a href="<?php the_permalink()?>" class="col-12 col-lg-4">
+        
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-lg-5 mt-3 mt-lg-0 mb-lg-3 book-item">
+            <a href="<?php the_permalink()?>">
                 <div class="book-3d-scene">
                     <div class="book-wrap">
                         <div class="book-side" style="background-image:url(<?php the_post_thumbnail_url()?>)"></div>
@@ -46,7 +47,7 @@ get_header(); ?>
                 </div>
                 <h3 class="book-title text-center"><?php the_title()?></h3>
             </a>
-        </article>
+        </div>
         <?php
         endwhile;
     endif;
