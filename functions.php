@@ -38,13 +38,13 @@ function metamedicina_enqueue(){
     wp_enqueue_style('owl-carousel-theme-css', get_template_directory_uri().'/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css');
     wp_enqueue_style('metamedicina-style', get_stylesheet_uri(),'',rand(0,9999));
     wp_enqueue_style('calendar-main', get_template_directory_uri().'/node_modules/fullcalendar/main.css'); 
-    wp_enqueue_style('responsive', get_template_directory_uri().'/css/responsive.css'); 
+    wp_enqueue_style('responsive', get_template_directory_uri().'/css/responsive.css','',rand(0,9999)); 
 
 
     wp_enqueue_script('jquery');
     wp_enqueue_script('owl-carousel', get_template_directory_uri().'/node_modules/owl.carousel/dist/owl.carousel.min.js');
     wp_enqueue_script('calendar-main', get_template_directory_uri().'/node_modules/fullcalendar/main.js');
-    wp_enqueue_script('scripts', get_template_directory_uri().'/js/scripts.js',['calendar-main']);
+    wp_enqueue_script('scripts', get_template_directory_uri().'/js/scripts.js',['calendar-main'],rand(0,9999));
 }
 
 add_action('wp_footer', 'metamedicina_footer');
