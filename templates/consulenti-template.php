@@ -96,7 +96,7 @@ get_header(); ?>
         <article class="col-12 col-sm-6 col-md-4 mb-5 trainers-block text-center">
             <div class="main-content">
                 <a href="<?php the_permalink()?>">
-                    <img loading="lazy" src="<?php the_post_thumbnail_url()?>)">
+                    <img loading="lazy" src="<?php the_post_thumbnail_url()?>">
                 </a>
                 <a href="<?php the_permalink()?>" class=" trainers-details">
                     <h3 class="trainer-title"><?php the_title()?></h3>
