@@ -125,8 +125,10 @@ $args = [
                 $langs[] = ucfirst(get_field('lingue'));
             }
 
-            foreach(get_field('luoghi') as $city){
-                $cities[$city->ID] = $city;
+            if(!empty(get_field('luoghi'))){
+                foreach(get_field('luoghi') as $city){
+                    $cities[$city->ID] = $city;
+                }
             }
 
 
