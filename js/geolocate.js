@@ -38,13 +38,14 @@ document.addEventListener('DOMContentLoaded',function(){
     let field = document.querySelector('#myCity_filter')
     let target = document.querySelector('#found-cities')
     let searchNearest = document.querySelector('#search_nearest')
-    let km = document.querySelectorAll('#km_filter');
+    let km = document.querySelector('#km_filter');
 
     let url = new URLSearchParams(location.search);
 
     if(url.has('c') && url.has('kmt')){
         field.setAttribute('data-city-info',url.get('c'))
         field.value = JSON.parse(url.get('c')).name
+        field.classList.add('found')
         km.value = url.get('kmt')
     }
     
