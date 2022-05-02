@@ -356,11 +356,14 @@ function metamedicina_comment_count($count){
 }
 
 function getCityNames($arr){
-    $str = '';
-    foreach ($arr as $item){
-        $str .= ($str == '') ? $item->post_title :  ', ' . $item->post_title;
+    if(!empty($arr)){
+        $str = '';
+
+        foreach ($arr as $item){
+            $str .= ($str == '') ? $item->post_title :  ', ' . $item->post_title;
+        }
+        return $str;
     }
-    return $str;
 }
 
 include('inc/cpt.php');
