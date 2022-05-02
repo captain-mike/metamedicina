@@ -247,7 +247,7 @@ $args = [
         else:?>
             <article class="col-12 mb-5 trainers-block text-center">
             <h2>Non ci sono consulenti vicini alla tua città.</h2> 
-            <a class="btn btn-primary" href="?cities=131523">
+            <a class="btn btn-primary" href="?cities=<?=get_page_by_title('Online')?>">
                 scopri i consulenti che lavorano online
             </a>
             </article>
