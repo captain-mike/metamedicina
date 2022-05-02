@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded',function(){
         target.classList.add('d-none')
         field.classList.remove('found')
         if(this.value.length >= 3){
-            fetch(getCities+this.value).then(data => data.json())
+            /*fetch(getCities+this.value).then(data => data.json())
             .then(data => {
                 
                 target.innerHTML = ''
@@ -70,6 +70,47 @@ document.addEventListener('DOMContentLoaded',function(){
                     target.appendChild(div);
                 }
                 
+            })*/
+            showLoading()
+            fetch(getCitiesJson).then(data => data.json())
+            .then(data => {
+                target.innerHTML = ''
+                target.classList.remove('d-none')
+                
+                let similar = data.filter(c => {
+                    let search =  field.value.toLowerCase();
+                    let cityName = c.name.toLowerCase()
+                    
+                    if(search.search(' ') != -1){
+                        
+                        search = search.split(' ');
+                        
+                        let [w1,w2] = search
+                        let w3 = search[2] || '' 
+                        
+                        return cityName.search(w1) != -1 && cityName.search(w2) != -1 && cityName.search(w3) != -1
+                        
+                    }else{
+                        return cityName.search(search) != -1
+                    }
+                    
+                })
+                
+                
+
+                for(let city of similar){
+                    let div = document.createElement('div');
+                    div.innerHTML = city.name
+                    div.addEventListener('click',function(){
+                        field.value = city.name
+                        target.classList.add('d-none')
+                        field.classList.add('found')
+                        field.setAttribute('data-city-info',JSON.stringify(city))
+                    })
+                    target.appendChild(div);
+                }
+                hideLoading()
+                
             })
         }
         
@@ -77,6 +118,7 @@ document.addEventListener('DOMContentLoaded',function(){
     )
 
     searchNearest.addEventListener('click',function(){
+        showLoading();
         
         let fields = Array.from(document.querySelectorAll('#myCity_filter, #km_filter'))
         let [city, km] = fields

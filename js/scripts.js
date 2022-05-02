@@ -27,6 +27,16 @@ jQuery($ =>{
         }
     });
 });
+/**
+ * for ajax loadings
+ */
+function showLoading(){
+    qs('#loading').classList.remove('d-none')
+}
+function hideLoading(){
+    qs('#loading').classList.add('d-none')
+}
+
 
 function qs(el, all = false){
     if(all)

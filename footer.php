@@ -1,4 +1,7 @@
 </div>
+<div id="loading" class="d-none">
+    <div><h6>LOADING...</h6></div>
+</div>
 <footer id="footer" role="contentinfo">
     <div id="disclaimer">
         <div class="container grey_bg">

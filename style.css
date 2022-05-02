@@ -87,6 +87,27 @@ Loader
     100%{transform: rotate(0deg) }
 }
 
+#loading{
+    position:fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 1000;
+    background-color:rgba(0,0,0,0.5);
+}
+#loading > div{
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%)
+}
+#loading h6{
+    font-size: 5rem;
+    color: #fff;
+}
+
 /*
 *
 Header
