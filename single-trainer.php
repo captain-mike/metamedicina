@@ -6,7 +6,6 @@ $id = get_the_ID();
 ?>
 <script>
     const TRAINER_ID = <?php echo $id?>;
-    console.log(TRAINER_ID);
 </script>
 <div class="breadcrumb-wrapper grey_bg">
     <?php
@@ -26,7 +25,7 @@ $id = get_the_ID();
         <div class="col-6 col-sm-4 m-0 col-lg calendar-icon-block">
             <b><?=_('Luogo')?></b><br> 
             <i class="bi bi-geo-alt"></i>
-            <p><?php the_field('luoghi')?></p>
+            <p><?= getCityNames(get_field('luoghi')) ?></p>
         </div>
         <div class="col-12 col-sm-4 m-0 col-lg calendar-icon-block">
             <b><?=_('E-mail')?></b><br> 

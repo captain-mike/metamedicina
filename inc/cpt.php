@@ -13,7 +13,7 @@ function create_posttype() {
             'has_archive' => true,
             'rewrite' => array('slug' => 'calendars'),
             'show_in_rest' => true,
-            'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields' ),
+            'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields' ),
         )
     );
     register_post_type( 'trainer',
@@ -27,7 +27,7 @@ function create_posttype() {
             'has_archive' => true,
             'rewrite' => array('slug' => 'trainers'),
             'show_in_rest' => true,
-            'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields' ),
+            'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields' ),
         )
     );
     
@@ -42,7 +42,22 @@ function create_posttype() {
             'has_archive' => true,
             'rewrite' => array('slug' => 'books'),
             'show_in_rest' => true,
-            'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields' ),
+            'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields' ),
+        )
+    );
+
+    register_post_type( 'city',
+    // CPT Options
+        array(
+            'labels' => array(
+                'name' => __( 'Cities' ),
+                'singular_name' => __( 'city' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'cities'),
+            'show_in_rest' => true,
+            'supports' => array( 'title','revisions', 'custom-fields' ),
         )
     );
 }

@@ -281,6 +281,21 @@ Trainers page
     border-radius: 5px;
 }
 
+div#found-cities {
+    max-height: 200px;
+    background-color: #fff;
+    box-shadow: 2px 2px 3px #000;
+    position: absolute;
+    width: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    z-index: 100;
+}
+div#found-cities > div:hover{
+    background-color: var(--main-grey);
+    cursor: pointer;
+}
+
 .trainers-block{
     position: relative;
     overflow: hidden;

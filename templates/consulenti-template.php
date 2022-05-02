@@ -74,19 +74,133 @@ get_header(); ?>
 <section class="mt-5">
     <div class="mb-5 mt-4 pl-2">
         <h4>Consulenti</h4>
-    </div>
-    <div class="row">
     <?php
-    $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-    $args = [
-        'post_type'         => 'trainer',
-        'posts_per_page'     => 18,
-        'paged' => $paged
-    ];
+
+
+if(isset($_GET['cities'])){
+    $relations = array(
+        'relation'		=> 'OR',
+        
+    );
+
+    foreach(explode(',',$_GET['cities']) as $id){
+        
+        $relations[] = [
+            'key'	 	=> 'luoghi',
+            'value'	  	=>  $id,
+            'compare' 	=> 'LIKE',
+        ];
+        
+    }
+    
+}else{ 
+    $relations = '';
+}
+
+
+$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+$args = [
+    'post_type'         => 'trainer',
+    'posts_per_page'     => 18,
+    'meta_query'	=> $relations,
+    'paged' => $paged
+];
+
 
     $trainers = new WP_Query($args);
+    
+    $langs = [];
+    $cities = [];
 
     if($trainers->have_posts() ) :
+        while($trainers->have_posts() ) : 
+            $trainers->the_post();
+
+            $values = explode(',', get_field('lingue'));
+            if(count($values) > 1){
+                foreach($values as $value):
+                    $langs[] =  ucfirst($value);
+                endforeach;
+            }else{
+                $langs[] = ucfirst(get_field('lingue'));
+            }
+
+            foreach(get_field('luoghi') as $city){
+                $cities[$city->ID] = $city;
+            }
+
+
+        endwhile;
+    endif;
+
+
+    ?>
+
+        
+        <div id="filter-row2" class="row p-1 mt-3">
+            <div class="col-12">
+                <h6>Trova consulenti vicini alla tua città</h4>
+            </div>
+            <div class="col-2 grey_bg d-relative">
+                <label for="myCity_filter">La tua città</label>
+                <input data-error="Devi inserire la tua città" data-error2="Devi cliccare una città nella tendina" type="text" id="myCity_filter" placeholder="ad es: Roma" class="form-control">
+                <span class="error-area"></span>
+                <div class="d-none" id="found-cities">
+                </div>
+            </div>
+            <div class="col-2 grey_bg">
+                <label for="km_filter">Distanza (Km)</label>
+                <input data-error="Devi inserire la distanza" type="number" max="100" id="km_filter" class="form-control">
+                <span class="error-area"></span>
+            </div>
+            <div class="col-2 grey_bg">
+                <button id="search_nearest" class="btn btn-primary mt-4">Cerca</button>
+            </div>
+        </div>
+        <div id="filter-row1" class="row p-1 d-none">
+            <div class="col-12">
+                <h6>Oppure</h4>
+            </div>
+            <div class="col-2 grey_bg">
+                <label for="name_filter">Nome</label>
+                <input type="text" id="name_filter" placeholder="Nome o Cognome" class="form-control">
+            </div>
+            <div class="col-2 grey_bg">
+                <label for="lang_filter">Lingua</label>
+                <select id="lang_filter" class="form-control">
+                    <option value="">Scegli lingua</option>
+                    <?php
+                    
+                        foreach(array_unique($langs) as $lang){
+                            ?>
+                            <option value="<?=$lang?>"><?=$lang?></option>
+                            <?php
+                        }
+
+                    ?>
+                </select>
+            </div>
+            <div class="col-2 grey_bg">
+                <label for="city_filter">Città</label>
+                <select id="city_filter" class="form-control">
+                    <option value="">Scegli Luogo</option>
+                    <?php
+                    
+                        foreach($cities as $city){
+                            $id = $city->ID;
+                            ?>
+                            <option data-lat="<?=get_field('lat',$id)?>" data-lng="<?=get_field('lng',$id)?>" value="<?=$id?>"><?=get_field('name',$id)?></option>
+                            <?php
+                        }
+
+                    ?>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+    <?php if($trainers->have_posts() ) :
         while($trainers->have_posts() ) : 
             $trainers->the_post();
 
@@ -119,14 +233,21 @@ get_header(); ?>
                     </div>
                     <div class="trainer-info mt-2">
                         <i class="bi bi-geo-alt"></i>
-                        <?php the_field('luoghi') ?>
+                        <?= getCityNames(get_field('luoghi')) ?>
                     </div>
                 </a>
             </address>
         </article>
         <?php
         endwhile;
-        endif;
+        else:?>
+            <article class="col-12 mb-5 trainers-block text-center">
+            <h2>Non ci sono consulenti vicini alla tua città.</h2> 
+            <a class="btn btn-primary" href="?cities=131523">
+                scopri i consulenti che lavorano online
+            </a>
+            </article>
+       <?php endif;
         ?>
     </div>
     <div class="row">

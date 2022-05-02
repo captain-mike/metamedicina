@@ -45,9 +45,151 @@ function metamedicina_enqueue(){
     wp_enqueue_script('owl-carousel', get_template_directory_uri().'/node_modules/owl.carousel/dist/owl.carousel.min.js');
     wp_enqueue_script('calendar-main', get_template_directory_uri().'/node_modules/fullcalendar/main.js');
     wp_enqueue_script('scripts', get_template_directory_uri().'/js/scripts.js',['calendar-main'],rand(0,9999));
+    wp_enqueue_script('scripts-geo', get_template_directory_uri().'/js/geolocate.js',['scripts']);
 }
 
 add_action('wp_footer', 'metamedicina_footer');
+
+/**
+ * This is our callback function that embeds our phrase in a WP_REST_Response
+ */
+function get_cities($data) {
+
+    $queried_city = $data->get_param('city');
+    $queried_city_arr = explode(' ',urldecode($queried_city));
+
+    if(count($queried_city_arr) > 1){
+        
+        $args = [
+            'post_type'         => 'city',
+            'posts_per_page'     => 5,
+            'no_found_rows' => true,
+            'post_status'         => 'publish',
+			'ignore_sticky_posts' => true,
+            'meta_query'	=> array(
+                'relation'		=> 'AND',
+                array(
+                    'key'	 	=> 'name',
+                    'value'	  	=> $queried_city_arr[0],
+                    'compare' 	=> 'LIKE',
+                ),
+                array(
+                    'key'	 	=> 'name',
+                    'value'	  	=> $queried_city_arr[1],
+                    'compare' 	=> 'LIKE',
+                ),
+            ),
+        ];
+    }else{ 
+        $args = [
+            'post_type'         => 'city',
+            'posts_per_page'     => 10,
+            'no_found_rows' => true,
+            'post_status'         => 'publish',
+			'ignore_sticky_posts' => true,
+            'meta_query'	=> array(
+                'relation'		=> 'AND',
+                array(
+                    'key'	 	=> 'name',
+                    'value'	  	=> $queried_city,
+                    'compare' 	=> 'LIKE',
+                )
+            ),
+        ];
+    }
+
+
+    $cities = new WP_Query($args);
+    $cities_arr = [];
+
+
+    if($cities->have_posts() ) :
+        while($cities->have_posts() ) :
+            $cities->the_post();
+
+            $cities_arr[] = [
+                'name' => get_field('name'),
+                'lat' => get_field('lat'),
+                'lng' => get_field('lng')
+            ];
+
+        endwhile;
+    endif;
+
+
+    // rest_ensure_response() wraps the data we want to return into a WP_REST_Response, and ensures it will be properly returned.
+    return rest_ensure_response($cities_arr);
+}
+
+function save_cities() {
+        $args = [
+            'post_type'         => 'city',
+            'posts_per_page'     => -1,
+            'no_found_rows' => true,
+            'post_status'         => 'publish',
+			'ignore_sticky_posts' => true
+        ];
+    
+    $cities = new WP_Query($args);
+    $cities_arr = [];
+
+    if($cities->have_posts() ) :
+        while($cities->have_posts() ) :
+            $cities->the_post();
+
+            $cities_arr[] = [
+                'id' => get_the_id(),
+                'name' => get_field('name'),
+                'lat' => get_field('lat'),
+                'lng' => get_field('lng')
+            ];
+
+        endwhile;
+    endif;
+    // rest_ensure_response() wraps the data we want to return into a WP_REST_Response, and ensures it will be properly returned.
+
+    
+    
+    $DOCUMENT_ROOT = $_SERVER['DOCUMENT_ROOT'];
+    $path = $DOCUMENT_ROOT.'/wp-content/themes/metamedicina/json/cities.json';
+    $json = json_encode($cities_arr);
+
+    $file = fopen( $path, "w" ); 
+
+    return fwrite($file,$json);
+
+    //return file_put_contents($path, $json);
+}
+ 
+/**
+ * This function is where we register our routes for our example endpoint.
+ */
+function prefix_register_example_routes() {
+    // register_rest_route() handles more arguments but we are going to stick to the basics for now.
+    register_rest_route( 'geo/v1', '/city', [
+        // By using this constant we ensure that when the WP_REST_Server changes our readable endpoints will work as intended.
+        'methods'  => 'GET',
+        // Here we register our callback. The callback is fired when this endpoint is matched by the WP_REST_Server class.
+        'callback' => 'get_cities',
+        'args' => array(
+            'id' => array(
+              'validate_callback' => function($param, $request, $key) {
+                return  $param ;
+              }
+            ),
+          )
+     ] );
+    
+    register_rest_route( 'geo/v1', '/city/save', [
+        // By using this constant we ensure that when the WP_REST_Server changes our readable endpoints will work as intended.
+        'methods'  => 'GET',
+        // Here we register our callback. The callback is fired when this endpoint is matched by the WP_REST_Server class.
+        'callback' => 'save_cities',
+       
+    ]);
+}
+ 
+add_action( 'rest_api_init', 'prefix_register_example_routes' );
 
 
 add_filter( 'rest_calendar_query', function( $args ) {
@@ -213,5 +355,12 @@ function metamedicina_comment_count($count){
     }
 }
 
+function getCityNames($arr){
+    $str = '';
+    foreach ($arr as $item){
+        $str .= ($str == '') ? $item->post_title :  ', ' . $item->post_title;
+    }
+    return $str;
+}
 
 include('inc/cpt.php');
