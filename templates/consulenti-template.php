@@ -92,6 +92,8 @@ if(isset($_GET['cities'])){
         ];
         
     }
+
+    var_dump(explode(',',$_GET['cities']));
     
 }else{ 
     $relations = '';
