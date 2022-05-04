@@ -15,7 +15,8 @@ Text Domain: metamedicina
 }
 
 body{
-    font-family: var(--main-font);
+    font-family: var(--secondary-font);
+    font-size: 1.3rem;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -123,6 +124,7 @@ Header
     letter-spacing: 2px;
     text-transform: uppercase;
     font-size: 0.7rem;
+    font-family: var(--main-font);
 }
 .email-col a{
     letter-spacing: 1px;
@@ -202,6 +204,8 @@ Pages
 */
 #breadcrumbs {
     padding: 15px;
+    font-family: var(--secondary-font);
+    font-size: 1rem;
 }
 .breadcrumb-wrapper{
     border-bottom-left-radius: 5px;
@@ -285,6 +289,9 @@ button.owl-next{
 Trainers page
 *
 */
+h3.trainer-title {
+    margin-bottom: -4px;
+}
 .role-name{
     color: #808080;
 }

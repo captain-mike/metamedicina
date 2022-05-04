@@ -171,6 +171,7 @@ function prefix_register_example_routes() {
         'methods'  => 'GET',
         // Here we register our callback. The callback is fired when this endpoint is matched by the WP_REST_Server class.
         'callback' => 'get_cities',
+        'permission_callback' => '__return_true',
         'args' => array(
             'id' => array(
               'validate_callback' => function($param, $request, $key) {
@@ -185,6 +186,7 @@ function prefix_register_example_routes() {
         'methods'  => 'GET',
         // Here we register our callback. The callback is fired when this endpoint is matched by the WP_REST_Server class.
         'callback' => 'save_cities',
+        'permission_callback' => '__return_true'
        
     ]);
 }

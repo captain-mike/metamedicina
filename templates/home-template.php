@@ -21,7 +21,7 @@ get_header();
             <div class="calendar-icon">
                 <a href="/seminari">
                     <img src="<?=get_template_directory_uri(); ?>/img/icona-seminari.png" class="img-responsive">
-                    <h3><?php _e('Seminars')?></h3>
+                    <h3><?php _e('Seminars', 'metamedicina')?></h3>
                 </a>
             </div>
         </div>
@@ -29,7 +29,7 @@ get_header();
             <div class="calendar-icon">
                 <a href="/workshop">
                     <img src="<?=get_template_directory_uri(); ?>/img/icona-workshop.png" class="img-responsive">
-                    <h3><?php _e('Workshop')?></h3>
+                    <h3><?php _e('Workshop', 'metamedicina')?></h3>
                 </a>
             </div>
         </div>
@@ -37,7 +37,7 @@ get_header();
             <div class="calendar-icon">
                 <a href="/conferenze">
                     <img src="<?=get_template_directory_uri(); ?>/img/icona-conferenze.png" class="img-responsive">
-                    <h3><?php _e('Conferences')?></h3>
+                    <h3><?php _e('Conferences', 'metamedicina')?></h3>
                 </a>
             </div>
         </div>
@@ -45,7 +45,15 @@ get_header();
             <div class="calendar-icon">
                 <a href="/eventi-online">
                     <img src="<?=get_template_directory_uri(); ?>/img/icona-online.png" class="img-responsive">
-                    <h3><?php _e('Consultants')?></h3>
+                    <h3><?php _e('online events', 'metamedicina')?></h3>
+                </a>
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-lg-12 mt-5">
+            <div class="calendar-icon">
+                <a href="/consulenti">
+                    <img src="<?=get_template_directory_uri(); ?>/img/icona-consulenti.png" class="img-responsive">
+                    <h3><?php _e('Trainers', 'metamedicina')?></h3>
                 </a>
             </div>
         </div>
