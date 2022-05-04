@@ -73,7 +73,7 @@ get_header(); ?>
 
 <section class="mt-5">
     <div class="mb-5 mt-4 pl-2">
-        <h4><?php _('Consultants', 'metamedicina')?></h4>
+        <h4><?php _e('Consultants', 'metamedicina')?></h4>
     <?php
 
 
@@ -142,22 +142,22 @@ $args = [
         
         <div id="filter-row2" class="row p-1 mt-3">
             <div class="col-12">
-                <h6><?php _('Find consultant next to your position', 'metamedicina')?></h4>
+                <h6><?php _e('Find consultant next to your position', 'metamedicina')?></h4>
             </div>
             <div class="col-2 grey_bg d-relative">
-                <label for="myCity_filter"><?php _('Your city', 'metamedicina')?></label>
-                <input data-error="<?php _('You need to insert your city', 'metamedicina')?>" data-error2="<?php _('You need to click on a city in the dropdown', 'metamedicina')?>" type="text" id="myCity_filter" placeholder="<?php _('Example: Roma', 'metamedicina')?>" class="form-control">
+                <label for="myCity_filter"><?php _e('Your city', 'metamedicina')?></label>
+                <input data-error="<?php _e('You need to insert your city', 'metamedicina')?>" data-error2="<?php _e('You need to click on a city in the dropdown', 'metamedicina')?>" type="text" id="myCity_filter" placeholder="<?php _('Example: Roma', 'metamedicina')?>" class="form-control">
                 <span class="error-area"></span>
                 <div class="d-none" id="found-cities">
                 </div>
             </div>
             <div class="col-2 grey_bg">
-                <label for="km_filter"><?php _('Distance', 'metamedicina')?> (Km)</label>
-                <input data-error="<?php _('Please set a distance', 'metamedicina')?>" type="number" max="100" id="km_filter" class="form-control">
+                <label for="km_filter"><?php _e('Distance', 'metamedicina')?> (Km)</label>
+                <input data-error="<?php _e('Please set a distance', 'metamedicina')?>" type="number" max="100" id="km_filter" class="form-control">
                 <span class="error-area"></span>
             </div>
             <div class="col-2 grey_bg">
-                <button id="search_nearest" class="btn btn-primary mt-4"><?php _('Search', 'metamedicina')?></button>
+                <button id="search_nearest" class="btn btn-primary mt-4"><?php _e('Search', 'metamedicina')?></button>
             </div>
         </div>
         <div id="filter-row1" class="row p-1 d-none">
@@ -245,9 +245,9 @@ $args = [
         endwhile;
         else:?>
             <article class="col-12 mb-5 trainers-block text-center">
-            <h2><?php _('No consultants was found', 'metamedicina')?>.</h2> 
+            <h2><?php _e('No consultants was found', 'metamedicina')?>.</h2> 
             <a class="btn btn-primary" href="?cities=<?=get_page_by_title('Online',OBJECT,'city')->ID?>">
-                <?php _('Found online consultants', 'metamedicina')?>    
+                <?php _e('Found online consultants', 'metamedicina')?>    
             </a>
             </article>
        <?php endif;
