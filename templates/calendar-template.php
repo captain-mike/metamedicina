@@ -12,7 +12,7 @@ get_header(); ?>
 </div>
 
 <h1 class="page-title py-2 red_bg mt-4 mb-2">
-    <?php the_title() ?> in programma
+    <?php the_title() ?> <?php _('incoming', 'metamedicina')?>
 </h1>
 
 <section id="calendar-icons" class="my-lg-5 py-5">
@@ -59,7 +59,7 @@ get_header(); ?>
             <a href="<?php the_permalink()?>" class="col-12 col-lg-8 calendar-details">
                 <h3 class="event-title"><?php the_title()?></h3>
                 <div class="event-trainer grey_bg mb-2">
-                    Condotto da: 
+                    <?php _('Conducted by', 'metamedicina')?> 
                     <b><?=get_field('trainer')[0]->post_title ?></b> 
                     <i class="bi bi-person-video3"></i>
                 </div>

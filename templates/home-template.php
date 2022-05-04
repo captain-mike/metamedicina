@@ -53,7 +53,7 @@ get_header();
             <div class="calendar-icon">
                 <a href="/consulenti">
                     <img src="<?=get_template_directory_uri(); ?>/img/icona-consulenti.png" class="img-responsive">
-                    <h3><?php _e('Trainers', 'metamedicina')?></h3>
+                    <h3><?php _e('Consultants', 'metamedicina')?></h3>
                 </a>
             </div>
         </div>
