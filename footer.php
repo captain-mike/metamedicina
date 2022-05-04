@@ -21,7 +21,7 @@
                  Sign up for our monthly newsletter!','metamedicina')?>
             </div>
             <div class="col offset-0 col-md-6 offset-md-3 mb-3">
-                <input type="text" required placeholder="<?php _e('name','metamedicina')?>" class="form-control" id="name">
+                <input type="text" required placeholder="<?php _e('Name','metamedicina')?>" class="form-control" id="name">
             </div>
             <div class="col offset-0 col-md-6 offset-md-3 mb-3">
                 <input type="email" required placeholder="email" class="form-control" id="psw">

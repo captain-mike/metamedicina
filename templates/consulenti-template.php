@@ -146,7 +146,7 @@ $args = [
             </div>
             <div class="col-2 grey_bg d-relative">
                 <label for="myCity_filter"><?php _e('Your city', 'metamedicina')?></label>
-                <input data-error="<?php _e('You need to insert your city', 'metamedicina')?>" data-error2="<?php _e('You need to click on a city in the dropdown', 'metamedicina')?>" type="text" id="myCity_filter" placeholder="<?php _('Example: Roma', 'metamedicina')?>" class="form-control">
+                <input data-error="<?php _e('You need to insert your city', 'metamedicina')?>" data-error2="<?php _e('You need to click on a city in the dropdown', 'metamedicina')?>" type="text" id="myCity_filter" placeholder="<?php _e('Example: Roma', 'metamedicina')?>" class="form-control">
                 <span class="error-area"></span>
                 <div class="d-none" id="found-cities">
                 </div>
