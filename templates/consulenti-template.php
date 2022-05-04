@@ -245,7 +245,7 @@ $args = [
         endwhile;
         else:?>
             <article class="col-12 mb-5 trainers-block text-center">
-            <h2><?php _e('No consultants was found', 'metamedicina')?>.</h2> 
+            <h2><?php _e('No consultants were found', 'metamedicina')?>.</h2> 
             <a class="btn btn-primary" href="?cities=<?=get_page_by_title('Online',OBJECT,'city')->ID?>">
                 <?php _e('Found online consultants', 'metamedicina')?>    
             </a>
