@@ -144,19 +144,19 @@ $args = [
             <div class="col-12">
                 <h6><?php _e('Find consultant next to your position', 'metamedicina')?></h4>
             </div>
-            <div class="col-2 grey_bg d-relative">
+            <div class="col-12 col-md-2 grey_bg d-relative">
                 <label for="myCity_filter"><?php _e('Your city', 'metamedicina')?></label>
                 <input data-error="<?php _e('You need to insert your city', 'metamedicina')?>" data-error2="<?php _e('You need to click on a city in the dropdown', 'metamedicina')?>" type="text" id="myCity_filter" placeholder="<?php _e('Example: Roma', 'metamedicina')?>" class="form-control">
                 <span class="error-area"></span>
                 <div class="d-none" id="found-cities">
                 </div>
             </div>
-            <div class="col-2 grey_bg">
+            <div class="col-12 col-md-2 grey_bg">
                 <label for="km_filter"><?php _e('Distance', 'metamedicina')?> (Km)</label>
                 <input data-error="<?php _e('Please set a distance', 'metamedicina')?>" type="number" max="100" id="km_filter" class="form-control">
                 <span class="error-area"></span>
             </div>
-            <div class="col-2 grey_bg">
+            <div class="col-12 col-md-2 grey_bg">
                 <button id="search_nearest" class="btn btn-primary mt-4"><?php _e('Search', 'metamedicina')?></button>
             </div>
         </div>
