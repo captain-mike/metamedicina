@@ -47,22 +47,7 @@ function getStringsByKey($key)
             </div>
             <div class="mb-1">
                 <b><?=_('Numero di pagine:')?></b> <?php the_field('pages') ?>
-            </div>
-            <div class="mb-1">
-                <b><?=_('Prezzo:')?></b> <?php the_field('price') ?>
-            </div>
-            <?php if(have_rows('buy')){?>
-                <div class="mb-1">
-                    <b><?=_('Acquista qui:')?></b> 
-                    <?php while(have_rows('buy')){
-                        the_row();
-                        ?>
-
-                    <a target="_blank" href="<?php the_sub_field('link') ?>"><?php the_sub_field('nome') ?></a>
-                    
-                    <?php }?>
-                </div>
-            <?php } ?>
+            </div>           
             <?php if(have_rows('campo_extra')){?>
                 <?php while(have_rows('campo_extra')){
                     the_row();?>
