@@ -10,8 +10,8 @@ Text Domain: metamedicina
 :root{
     --main-red: #c2000b;
     --main-grey: #f2f2f2;
-    --main-font: 'Montserrat Alternates', sans-serif;
-    --secondary-font: 'Bubbler One', sans-serif;
+    --main-font: 'Playfair Display', serif;
+    --secondary-font: 'Montserrat', sans-serif;
 }
 
 body{
@@ -124,7 +124,7 @@ Header
     letter-spacing: 2px;
     text-transform: uppercase;
     font-size: 0.7rem;
-    font-family: var(--main-font);
+    font-family: var(--secondary-font);
 }
 .email-col a{
     letter-spacing: 1px;
@@ -155,7 +155,7 @@ Header
     text-decoration: none;
     text-transform: uppercase;
     font-family: var(--secondary-font);
-    font-size: 1.30rem;
+    font-size: 1rem;
 }
 
 #menu .menu-item-has-children{
@@ -270,6 +270,8 @@ button.owl-next{
 .calendar-icon h3{
     font-size: 1.5rem;
     margin-top: 20px;
+    font-weight: normal;
+    font-family: var(--secondary-font);
 }
 
 /*pagination*/

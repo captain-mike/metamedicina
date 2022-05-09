@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bubbler+One&family=Montserrat+Alternates:wght@300;400&display=swap" rel="stylesheet">
+<link defer async href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display&display=swap" rel="stylesheet">
     <?php wp_head(); ?>
 </head>
 
