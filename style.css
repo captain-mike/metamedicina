@@ -10,6 +10,7 @@ Text Domain: metamedicina
 :root{
     --main-red: #c2000b;
     --main-grey: #f2f2f2;
+    --main-yellow: #f5f3a5;
     --main-font: 'Playfair Display', serif;
     --secondary-font: 'Montserrat', sans-serif;
 }
@@ -141,6 +142,10 @@ Header
     height: 100%;
 }
 
+#menu{
+    text-align: right;
+}
+
 #menu ul {
     display: flex;
     list-style: none;
@@ -156,6 +161,16 @@ Header
     text-transform: uppercase;
     font-family: var(--secondary-font);
     font-size: 1rem;
+}
+#menu ul li:hover > a{
+    color: var(--main-yellow);
+}
+
+#menu .current_page_item{
+    font-weight: bold;
+}
+#menu .current_page_item a{
+    border-bottom: 3px solid #f5f3a5;
 }
 
 #menu .menu-item-has-children{
@@ -195,6 +210,19 @@ Header
 
 #main-logo img{
     width: 280px;
+}
+@media screen and (min-width: 1024px) {
+
+    .header-youtube, .menu-main-container{
+        display: inline-block;
+    }
+}
+.header-youtube{
+    color: #fff;
+    padding-left: 30px;
+}
+.header-youtube:hover{
+    color: var(--main-yellow);
 }
 
 /*

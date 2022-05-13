@@ -5,8 +5,8 @@
     <meta charset="<?php bloginfo('charset'); ?>" />
     <meta name="viewport" content="width=device-width" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link defer async href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link defer async href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display&display=swap" rel="stylesheet">
     <?php wp_head(); ?>
 </head>
 
@@ -42,7 +42,14 @@
                                 <button class="toggle"><i class="bi bi-list"></i></button>
                             </div>
                             <nav id="menu" role="navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
-                                <?php wp_nav_menu(array('theme_location' => 'main-menu', 'link_before' => '<span itemprop="name">', 'link_after' => '</span>')); ?>
+                                <?php wp_nav_menu(array(
+                                    'theme_location' => 'main-menu', 
+                                    'link_before' => '<span itemprop="name">', 
+                                    'link_after' => '</span>'
+                                    )); ?>
+                                <a class="header-youtube" target="_blank" href="https://www.youtube.com/channel/UCUkSeDrl7b0LA-SmFKEsbsA">
+                                    <i class="bi bi-youtube"></i>
+                                </a>
                             </nav>
                         </div>
                     </div>

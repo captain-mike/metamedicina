@@ -15,6 +15,15 @@
 }
 
 @media screen and (max-width:1024px) {
+
+
+    #menu ul li:hover > a{
+        color: #000;
+    }
+    #menu .current_page_item a{
+        border-bottom: 3px solid var(--main-red);
+    }
+
     /* mobile menu*/
 
     .mobile-bar {
