@@ -24,7 +24,7 @@
                             <span class="d-none d-sm-block"><?=_('Contact us')?>: </span><a href="mailto:italia@metamedecine.com">italia@metamedecine.com</a>
                         </div>
                         <div class="col-12 d-block d-sm-flex text-center col-sm-6 language-col">
-                            <?php do_action('wpml_add_language_selector'); ?>
+                            <?php do_action('wpml_add_language_selector'); ?> 
                         </div>
                     </div>
                 </div>
