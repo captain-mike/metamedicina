@@ -96,16 +96,18 @@ if(isset($_GET['cities'])){
     
 }else if(isset($_GET['filter'])){ 
     $relations = array(
-        'relation'		=> 'OR',
+        'relation'		=> 'AND',
         
     );
-    if(isset($_GET['place'])){
+    if(isset($_GET['r'])){
 
         $relations[] = [
-            'key'	 	=> 'luoghi',
-            'value'	  	=>  $_GET['place'],
+            'key'	 	=> 'regioni_italiane',
+            'value'	  	=>  $_GET['r'],
             'compare' 	=> 'LIKE',
         ];
+
+        var_dump($_GET['r']);
     }
     if(isset($_GET['l'])){
 
@@ -189,13 +191,13 @@ if(isset($_GET['n'])){
         </div>
         <div id="filter-row1" class="row p-1">
             <div class="col-12">
-                <h6><?php _('Oppure') ?></h4>
+                <h6><?php _e('Oppure') ?></h4>
             </div>
-            <div class="col-2 grey_bg">
+            <div class="col-12 col-md-2 grey_bg">
                 <label for="name_filter"><?php _e('Nome')?></label>
                 <input type="text" id="name_filter" name="n" placeholder="Nome o Cognome" class="form-control">
             </div>
-            <div class="col-2 grey_bg">
+            <div class="col-12 col-md-2 grey_bg">
                 <label for="lang_filter"><?php _e('Lingua')?></label>
                 <select id="lang_filter" name="l" class="form-control">
                     <option value=""><?php _e('Scegli lingua')?></option>
@@ -210,8 +212,11 @@ if(isset($_GET['n'])){
                     ?>
                 </select>
             </div>
-            <div class="col-2 grey_bg">
-                <label for="region_filter"><?php _e('Città')?></label>
+            <?php $my_current_lang = apply_filters( 'wpml_current_language', NULL ); 
+            if($my_current_lang == 'it'):
+            ?>
+            <div class="col-12 col-md-2 grey_bg">
+                <label for="region_filter"><?php _e('Regione')?></label>
                 <select id="region_filter" name="r" class="form-control">
                     <option value=""><?php _e('Scegli Luogo')?></option>
                     <?php
@@ -225,9 +230,15 @@ if(isset($_GET['n'])){
                     ?>
                 </select>
             </div>
+            <?php endif;?>
             <div class="col-12 col-md-2 grey_bg">
                 <button id="search_other" class="btn btn-primary mt-4"><?php _e('Search', 'metamedicina')?></button>
             </div>
+            <?php if(isset($_GET['filter'])): ?>
+            <div class="col-12 col-md-12">
+                <a href="/consulenti#filter-row2" id="reset_filter" class="btn btn-danger mt-4"><?php _e('Reset filters', 'metamedicina')?></a>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
     <div class="row">

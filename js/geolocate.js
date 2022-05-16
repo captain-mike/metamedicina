@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
             let ids = near.map(c => c.id)
 
-            window.location.href = `?cities=${ids}&c=${city.getAttribute('data-city-info')}&kmt=${km.value}`
+            window.location.href = `#filter-row2?cities=${ids}&c=${city.getAttribute('data-city-info')}&kmt=${km.value}`
         })
 
     })

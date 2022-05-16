@@ -143,12 +143,13 @@ clickOnThese('.menu-item-has-children', function(){
 
     //trainer citi/lang/name filters
 
+    let fields = Array.from(qs('#name_filter, #lang_filter, #region_filter',true))
     clickOnThis('#search_other',function(){
 
-        let fields = Array.from(qs('#name_filter, #lang_filter, #region_filter',true))
         let [name, lang, region] = fields
 
         let search = new URLSearchParams()
+        search.set('filter',1)
 
         for(let field of fields){
             if(field.value)
@@ -160,5 +161,20 @@ clickOnThese('.menu-item-has-children', function(){
         
 
     })
+
+    //check if there are active filters and update fields
+    let url = new URLSearchParams(location.search)
+
+    if(url.has('filter')){
+        for(let field of fields){
+            if(url.has(field.name)){
+                field.value = url.get(field.name)
+            }
+        }
+    }
+
+    //reset filters
+
+
 
 });
