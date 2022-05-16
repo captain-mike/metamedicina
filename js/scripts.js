@@ -139,4 +139,26 @@ clickOnThese('.menu-item-has-children', function(){
         })
     }
 
+    /** filters */
+
+    //trainer citi/lang/name filters
+
+    clickOnThis('#search_other',function(){
+
+        let fields = Array.from(qs('#name_filter, #lang_filter, #region_filter',true))
+        let [name, lang, region] = fields
+
+        let search = new URLSearchParams()
+
+        for(let field of fields){
+            if(field.value)
+            search.set(field.name,field.value)
+
+        }
+
+        location.href = '?'+search.toString()
+        
+
+    })
+
 });

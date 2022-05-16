@@ -94,7 +94,28 @@ if(isset($_GET['cities'])){
     }
 
     
-}else{ 
+}else if(isset($_GET['filter'])){ 
+    $relations = array(
+        'relation'		=> 'OR',
+        
+    );
+    if(isset($_GET['place'])){
+
+        $relations[] = [
+            'key'	 	=> 'luoghi',
+            'value'	  	=>  $_GET['place'],
+            'compare' 	=> 'LIKE',
+        ];
+    }
+    if(isset($_GET['l'])){
+
+        $relations[] = [
+            'key'	 	=> 'lingue',
+            'value'	  	=>  $_GET['l'],
+            'compare' 	=> 'LIKE',
+        ];
+    }
+}else{
     $relations = '';
 }
 
@@ -107,28 +128,34 @@ $args = [
     'paged' => $paged
 ];
 
+if(isset($_GET['n'])){
+
+    $args['s'] = $_GET['n'];
+}
+
 
     $trainers = new WP_Query($args);
     
     $langs = [];
-    $cities = [];
+    $regions = [];
 
     if($trainers->have_posts() ) :
         while($trainers->have_posts() ) : 
             $trainers->the_post();
 
+            //creates a unique array of languages
             $values = explode(',', get_field('lingue'));
             if(count($values) > 1){
                 foreach($values as $value):
-                    $langs[] =  ucfirst($value);
+                    $langs[] =  trim(ucfirst($value));
                 endforeach;
             }else{
                 $langs[] = ucfirst(get_field('lingue'));
             }
-
-            if(!empty(get_field('luoghi'))){
-                foreach(get_field('luoghi') as $city){
-                    $cities[$city->ID] = $city;
+            //creates a unique array of cities
+            if(!empty(get_field('regioni_italiane'))){
+                foreach(get_field('regioni_italiane') as $region){
+                    $regions[$region] = $region;
                 }
             }
 
@@ -160,18 +187,18 @@ $args = [
                 <button id="search_nearest" class="btn btn-primary mt-4"><?php _e('Search', 'metamedicina')?></button>
             </div>
         </div>
-        <div id="filter-row1" class="row p-1 d-none">
+        <div id="filter-row1" class="row p-1">
             <div class="col-12">
-                <h6>Oppure</h4>
+                <h6><?php _('Oppure') ?></h4>
             </div>
             <div class="col-2 grey_bg">
-                <label for="name_filter">Nome</label>
-                <input type="text" id="name_filter" placeholder="Nome o Cognome" class="form-control">
+                <label for="name_filter"><?php _e('Nome')?></label>
+                <input type="text" id="name_filter" name="n" placeholder="Nome o Cognome" class="form-control">
             </div>
             <div class="col-2 grey_bg">
-                <label for="lang_filter">Lingua</label>
-                <select id="lang_filter" class="form-control">
-                    <option value="">Scegli lingua</option>
+                <label for="lang_filter"><?php _e('Lingua')?></label>
+                <select id="lang_filter" name="l" class="form-control">
+                    <option value=""><?php _e('Scegli lingua')?></option>
                     <?php
                     
                         foreach(array_unique($langs) as $lang){
@@ -184,20 +211,22 @@ $args = [
                 </select>
             </div>
             <div class="col-2 grey_bg">
-                <label for="city_filter">Città</label>
-                <select id="city_filter" class="form-control">
-                    <option value="">Scegli Luogo</option>
+                <label for="region_filter"><?php _e('Città')?></label>
+                <select id="region_filter" name="r" class="form-control">
+                    <option value=""><?php _e('Scegli Luogo')?></option>
                     <?php
                     
-                        foreach($cities as $city){
-                            $id = $city->ID;
+                        foreach($regions as $region){
                             ?>
-                            <option data-lat="<?=get_field('lat',$id)?>" data-lng="<?=get_field('lng',$id)?>" value="<?=$id?>"><?=get_field('name',$id)?></option>
+                            <option value="<?=$region?>"><?=$region?></option>
                             <?php
                         }
 
                     ?>
                 </select>
+            </div>
+            <div class="col-12 col-md-2 grey_bg">
+                <button id="search_other" class="btn btn-primary mt-4"><?php _e('Search', 'metamedicina')?></button>
             </div>
         </div>
     </div>
