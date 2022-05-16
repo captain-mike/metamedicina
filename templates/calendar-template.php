@@ -1,7 +1,11 @@
 <?php
 //Template Name: Calendar
 
-get_header(); ?>
+get_header(); 
+
+global $post;
+$post_slug = $post->post_name;
+?>
 
 <div class="breadcrumb-wrapper grey_bg">
     <?php
@@ -15,11 +19,35 @@ get_header(); ?>
     <?php the_title() ?> <?php _e('incoming', 'metamedicina')?>
 </h1>
 
-<section id="calendar-icons" class="my-lg-5 py-5">
-
+<section id="calendar-icons" class="my-lg-5 pb-5 pt-3">
 
         <?php
-        
+$relations = array(
+    'relation'		=> 'AND',
+    [
+        'key'	 	=> 'categoria',
+        'value'	  	=> get_field('categoria'),
+        'compare' 	=> '='
+    ]
+    
+);
+
+if(isset($_GET['filter'])){ 
+    if(isset($_GET['r'])){
+
+        $relations[] = [
+            'key'	 	=> 'regioni_italiane',
+            'value'	  	=>  $_GET['r'],
+            'compare' 	=> 'LIKE',
+        ];
+
+    }
+}
+
+
+
+
+
         $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
         $args = [
             'post_type'         => 'calendar',
@@ -27,27 +55,77 @@ get_header(); ?>
             'meta_key'			=> 'start',
             'orderby'			=> 'meta_value_num',
             'order'				=> 'ASC',
-            'meta_query'	=> array(
-                'relation'		=> 'AND',
-                array(
-                    'key'	 	=> 'categoria',
-                    'value'	  	=> get_field('categoria'),
-                    'compare' 	=> '='
-                )
-            ),
+            'meta_query'	=> $relations,
             'paged' => $paged
         ];
+        
+        
+        if(isset($_GET['n'])){
+        
+            $args['s'] = $_GET['n'];
+        }
 
         $calendar = new WP_Query($args);
-
         
-        if($calendar->have_posts() ) :
-        while($calendar->have_posts() ) : 
-            $calendar->the_post();
+        
+        if($calendar->have_posts() ) : ?>
 
-            $icon_map = empty(get_field('indirizzo')) ? '' : '<i class="bi bi-geo-alt"></i>';
-                
+        <?php    
+        $regions = [];
+                while($calendar->have_posts() ) : 
+                    $calendar->the_post();
+                    $post_regions = get_field('regioni_italiane');
+                    if(!empty($post_regions)){
+                        foreach($post_regions as $r){
+                            $regions[$r] = $r;
+                        }
+                    }
+
+                endwhile;
         ?>
+
+        <div id="filter-row1" class="row p-1 mb-5">
+            <div class="col-12">
+                <h6><?php _e('Filter','metamedicina') ?></h4>
+            </div>
+            <div class="col-12 col-md-2 grey_bg">
+                <label for="name_filter"><?php _e('Nome','metamedicina')?></label>
+                <input type="text" id="name_filter" name="n" placeholder="<?php _e('Event name','metamedicina')?>" class="form-control">
+            </div>
+            <div class="col-12 col-md-2 grey_bg">
+                <label for="region_filter"><?php _e('Region','metamedicina')?></label>
+                <select id="region_filter" name="r" class="form-control">
+                    <option value=""><?php _e('Choose place','metamedicina')?></option>
+                    <?php
+                    
+                        foreach($regions as $region){
+                            ?>
+                            <option value="<?=$region?>"><?=$region?></option>
+                            <?php
+                        }
+
+                    ?>
+                </select>
+            </div>
+            <div class="col-12 col-md-2 grey_bg">
+                <button id="search_other" class="btn btn-primary mt-4"><?php _e('Search', 'metamedicina')?></button>
+            </div>
+            <?php if(isset($_GET['filter'])): 
+                
+                ?>
+            <div class="col-12 col-md-12">
+                <a href="/<?=$post_slug?>#filter-row2" id="reset_filter" class="btn btn-danger mt-4"><?php _e('Reset filters', 'metamedicina')?></a>
+                </div>
+            <?php endif; ?>
+        </div>
+
+        <?php 
+        while($calendar->have_posts() ) : 
+                $calendar->the_post();
+                
+                $icon_map = empty(get_field('indirizzo')) ? '' : '<i class="bi bi-geo-alt"></i>';
+                
+                ?>
         <article class="row mb-5 mt-3 mt-lg-0 mb-lg-3 calendar-row">
             <a href="<?php the_permalink()?>" class="col-12 col-lg-4">
                 <div class="event-image" style="background-image:url(<?php the_post_thumbnail_url()?>)">

@@ -1,7 +1,11 @@
 <?php
 //Template Name: Trainers
 
-get_header(); ?>
+get_header(); 
+
+global $post;
+$post_slug = $post->post_name;
+?>
 
 <div class="breadcrumb-wrapper grey_bg">
     <?php
@@ -107,7 +111,6 @@ if(isset($_GET['cities'])){
             'compare' 	=> 'LIKE',
         ];
 
-        var_dump($_GET['r']);
     }
     if(isset($_GET['l'])){
 
@@ -191,16 +194,16 @@ if(isset($_GET['n'])){
         </div>
         <div id="filter-row1" class="row p-1">
             <div class="col-12">
-                <h6><?php _e('Oppure') ?></h4>
+                <h6><?php _e('Or','metamedicina') ?></h4>
             </div>
             <div class="col-12 col-md-2 grey_bg">
-                <label for="name_filter"><?php _e('Nome')?></label>
-                <input type="text" id="name_filter" name="n" placeholder="Nome o Cognome" class="form-control">
+                <label for="name_filter"><?php _e('Nome','metamedicina')?></label>
+                <input type="text" id="name_filter" name="n" placeholder="<?php _e('Name and lastname','metamedicina') ?>" class="form-control">
             </div>
             <div class="col-12 col-md-2 grey_bg">
-                <label for="lang_filter"><?php _e('Lingua')?></label>
+                <label for="lang_filter"><?php _e('Language','metamedicina')?></label>
                 <select id="lang_filter" name="l" class="form-control">
-                    <option value=""><?php _e('Scegli lingua')?></option>
+                    <option value=""><?php _e('Select Language','metamedicina')?></option>
                     <?php
                     
                         foreach(array_unique($langs) as $lang){
@@ -216,9 +219,9 @@ if(isset($_GET['n'])){
             if($my_current_lang == 'it'):
             ?>
             <div class="col-12 col-md-2 grey_bg">
-                <label for="region_filter"><?php _e('Regione')?></label>
+                <label for="region_filter"><?php _e('Region','metamedicina')?></label>
                 <select id="region_filter" name="r" class="form-control">
-                    <option value=""><?php _e('Scegli Luogo')?></option>
+                    <option value=""><?php _e('Select place','metamedicina')?></option>
                     <?php
                     
                         foreach($regions as $region){
@@ -236,7 +239,7 @@ if(isset($_GET['n'])){
             </div>
             <?php if(isset($_GET['filter'])): ?>
             <div class="col-12 col-md-12">
-                <a href="/consulenti#filter-row2" id="reset_filter" class="btn btn-danger mt-4"><?php _e('Reset filters', 'metamedicina')?></a>
+                <a href="/<?=$post_slug?>#filter-row2" id="reset_filter" class="btn btn-danger mt-4"><?php _e('Reset filters', 'metamedicina')?></a>
                 </div>
             <?php endif; ?>
         </div>

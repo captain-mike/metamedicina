@@ -32,15 +32,15 @@ function getStringsByKey($key)
 <div class="container mt-3 d-none d-lg-block">
     <div class="row text-center">
         <div class="col calendar-icon-block">
-            <b><?php _('Start', 'metamedicina')?></b><br> <i class="bi bi-calendar-heart"></i>
+            <b><?php _e('Start', 'metamedicina')?></b><br> <i class="bi bi-calendar-heart"></i>
             <p><?php the_field('start') ?></p>
         </div>
         <div class="col calendar-icon-block">
-            <b><?php _('End', 'metamedicina')?></b><br> <i class="bi bi-calendar-x"></i>
+            <b><?php _e('End', 'metamedicina')?></b><br> <i class="bi bi-calendar-x"></i>
             <p><?php the_field('end') ?></p>
         </div>
         <div class="col calendar-icon-block">
-            <b><?php _('Place', 'metamedicina')?></b><br> <i class="bi bi-geo-alt"></i>
+            <b><?php _e('Place', 'metamedicina')?></b><br> <i class="bi bi-geo-alt"></i>
             <p><?php the_field('indirizzo') ?></p>
         </div>
         <div class="col calendar-icon-block">
@@ -65,7 +65,7 @@ function getStringsByKey($key)
         </main>
         <aside id="calendar-sidebar" class="col-12 col-md-4 d-none d-lg-block">
             <div class="calendar-trainer mb-4">
-                <h3><?php _('Conducted by', 'metamedicina')?>:</h3>
+                <h3><?php _e('Conducted by', 'metamedicina')?>:</h3>
                 <div class="row">
                     <?php
                     foreach ($trainers as $person) {
@@ -79,10 +79,10 @@ function getStringsByKey($key)
             </div>
 
             <div class="calendar-price">
-                <h3><?php _('Price and Promotions', 'metamedicina')?></h3>
+                <h3><?php _e('Price and Promotions', 'metamedicina')?></h3>
                 <div class="row mt-4">
                     <div class="col-12">
-                        <b><?php _('Price', 'metamedicina')?>:</b> <?php the_field('price') ?>
+                        <b><?php _e('Price', 'metamedicina')?>:</b> <?php the_field('price') ?>
                     </div>
                 </div>
                 <div class="row mt-4">
