@@ -160,6 +160,58 @@ function save_cities() {
 
     //return file_put_contents($path, $json);
 }
+
+function get_calendar_regions(){
+    $args_filter = [
+        'post_type'         => 'calendar',
+        'posts_per_page'     => -1,
+        'no_found_rows' => true,
+        'post_status'         => 'publish',
+		'ignore_sticky_posts' => true,
+        'fields' => 'ids'
+    ];
+    $calendar_filter = new WP_Query($args_filter);
+    $regions = [];
+    if($calendar_filter->have_posts() ) : 
+    while($calendar_filter->have_posts() ) : 
+        $calendar_filter->the_post();
+        $post_regions = get_field('regioni_italiane',get_the_ID());
+        if(!empty($post_regions)){
+            foreach($post_regions as $r){
+                $regions[$r] = $r;
+            }
+        }
+    endwhile;
+    endif;
+    wp_reset_query();
+    return $regions;
+}
+
+function get_trainer_regions(){
+    $args_filter = [
+        'post_type'         => 'trainer',
+        'posts_per_page'     => -1,
+        'no_found_rows' => true,
+        'post_status'         => 'publish',
+		'ignore_sticky_posts' => true,
+        'fields' => 'ids'
+    ];
+    $calendar_filter = new WP_Query($args_filter);
+    $regions = [];
+    if($calendar_filter->have_posts() ) : 
+    while($calendar_filter->have_posts() ) : 
+        $calendar_filter->the_post();
+        $post_regions = get_field('regioni_italiane',get_the_ID());
+        if(!empty($post_regions)){
+            foreach($post_regions as $r){
+                $regions[$r] = $r;
+            }
+        }
+    endwhile;
+    endif;
+    wp_reset_query();
+    return $regions;
+}
  
 /**
  * This function is where we register our routes for our example endpoint.

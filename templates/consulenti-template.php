@@ -142,7 +142,7 @@ if(isset($_GET['n'])){
     $trainers = new WP_Query($args);
     
     $langs = [];
-    $regions = [];
+    $regions = get_trainer_regions();
 
     if($trainers->have_posts() ) :
         while($trainers->have_posts() ) : 
@@ -157,14 +157,6 @@ if(isset($_GET['n'])){
             }else{
                 $langs[] = ucfirst(get_field('lingue'));
             }
-            //creates a unique array of cities
-            if(!empty(get_field('regioni_italiane'))){
-                foreach(get_field('regioni_italiane') as $region){
-                    $regions[$region] = $region;
-                }
-            }
-
-
         endwhile;
     endif;
 
@@ -174,18 +166,18 @@ if(isset($_GET['n'])){
         
         <div id="filter-row2" class="row p-1 mt-3">
             <div class="col-12">
-                <h6><?php _e('Find consultant next to your position', 'metamedicina')?></h4>
+                <h6><?php _e('Do you want a personalized meeting to see how Metamedicine can help you? Find the consultant closest to you', 'metamedicina')?></h4>
             </div>
             <div class="col-12 col-md-2 grey_bg d-relative">
-                <label for="myCity_filter"><?php _e('Your city', 'metamedicina')?></label>
+                <label for="myCity_filter"><?php _e('Write your city', 'metamedicina')?></label>
                 <input data-error="<?php _e('You need to insert your city', 'metamedicina')?>" data-error2="<?php _e('You need to click on a city in the dropdown', 'metamedicina')?>" type="text" id="myCity_filter" placeholder="<?php _e('Example: Roma', 'metamedicina')?>" class="form-control">
                 <span class="error-area"></span>
                 <div class="d-none" id="found-cities">
                 </div>
             </div>
-            <div class="col-12 col-md-2 grey_bg">
-                <label for="km_filter"><?php _e('Distance', 'metamedicina')?> (Km)</label>
-                <input data-error="<?php _e('Please set a distance', 'metamedicina')?>" type="number" max="100" id="km_filter" class="form-control">
+            <div class="col-12 col-md-5 grey_bg">
+                <label for="km_filter"><?php _e('How many kilometers can you travel?', 'metamedicina')?> (Km)</label>
+                <input data-error="<?php _e('Please set a distance', 'metamedicina')?>" type="number" max="100" id="km_filter" class="form-control w-50">
                 <span class="error-area"></span>
             </div>
             <div class="col-12 col-md-2 grey_bg">
@@ -194,10 +186,10 @@ if(isset($_GET['n'])){
         </div>
         <div id="filter-row1" class="row p-1">
             <div class="col-12">
-                <h6><?php _e('Or','metamedicina') ?></h4>
+                <h6><?php _e('Advanced filters','metamedicina') ?>:</h4>
             </div>
             <div class="col-12 col-md-2 grey_bg">
-                <label for="name_filter"><?php _e('Nome','metamedicina')?></label>
+                <label for="name_filter"><?php _e('Name','metamedicina')?></label>
                 <input type="text" id="name_filter" name="n" placeholder="<?php _e('Name and lastname','metamedicina') ?>" class="form-control">
             </div>
             <div class="col-12 col-md-2 grey_bg">
@@ -237,9 +229,17 @@ if(isset($_GET['n'])){
             <div class="col-12 col-md-2 grey_bg">
                 <button id="search_other" class="btn btn-primary mt-4"><?php _e('Search', 'metamedicina')?></button>
             </div>
+        </div>
+        <div class="row p-1 mt-3">
+            <div class="col-12 col-md-8 grey_bg">
+                <h6><?php _e('We are also available for online sessions.') ?></h6>
+                <a class="btn btn-primary" href="?cities=<?=get_page_by_title('Online',OBJECT,'city')->ID?>">
+                    <?php _e('Find the Consultants who also receive online', 'metamedicina')?>    
+                </a>
+            </div>
             <?php if(isset($_GET['filter'])): ?>
-            <div class="col-12 col-md-12">
-                <a href="/<?=$post_slug?>#filter-row2" id="reset_filter" class="btn btn-danger mt-4"><?php _e('Reset filters', 'metamedicina')?></a>
+                <div class="col-12 col-md-12">
+                    <a href="/<?=$post_slug?>#filter-row2" id="reset_filter" class="btn btn-danger mt-4"><?php _e('Reset filters', 'metamedicina')?></a>
                 </div>
             <?php endif; ?>
         </div>
@@ -289,8 +289,9 @@ if(isset($_GET['n'])){
         else:?>
             <article class="col-12 mb-5 trainers-block text-center">
             <h2><?php _e('No consultants were found', 'metamedicina')?>.</h2> 
+            <h4><?php _e('We are also available for online sessions.', 'metamedicina')?>.</h4> 
             <a class="btn btn-primary" href="?cities=<?=get_page_by_title('Online',OBJECT,'city')->ID?>">
-                <?php _e('Found online consultants', 'metamedicina')?>    
+                <?php _e('Find the Consultants who also receive online', 'metamedicina')?>    
             </a>
             </article>
        <?php endif;

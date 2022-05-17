@@ -157,7 +157,7 @@ clickOnThese('.menu-item-has-children', function(){
 
         }
 
-        location.href = '?'+search.toString()
+        location.href = '/'+PAGE_SLUG+'?'+search.toString()
         
 
     })

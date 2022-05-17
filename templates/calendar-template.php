@@ -52,12 +52,15 @@ if(isset($_GET['filter'])){
         $args = [
             'post_type'         => 'calendar',
             'post_per_page'     => 10,
-            'meta_key'			=> 'start',
-            'orderby'			=> 'meta_value_num',
+            //'meta_key'			=> 'start',
+            //'orderby'			=> 'meta_value_num',
+            'orderby'			=> 'menu_order',
             'order'				=> 'ASC',
             'meta_query'	=> $relations,
             'paged' => $paged
         ];
+        
+        
         
         
         if(isset($_GET['n'])){
@@ -65,24 +68,12 @@ if(isset($_GET['filter'])){
             $args['s'] = $_GET['n'];
         }
 
+        $regions = get_calendar_regions();
+
         $calendar = new WP_Query($args);
-        
+       
         
         if($calendar->have_posts() ) : ?>
-
-        <?php    
-        $regions = [];
-                while($calendar->have_posts() ) : 
-                    $calendar->the_post();
-                    $post_regions = get_field('regioni_italiane');
-                    if(!empty($post_regions)){
-                        foreach($post_regions as $r){
-                            $regions[$r] = $r;
-                        }
-                    }
-
-                endwhile;
-        ?>
 
         <div id="filter-row1" class="row p-1 mb-5">
             <div class="col-12">
