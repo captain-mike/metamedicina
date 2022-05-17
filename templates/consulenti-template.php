@@ -232,7 +232,7 @@ if(isset($_GET['n'])){
         </div>
         <div class="row p-1 mt-3">
             <div class="col-12 col-md-8 grey_bg">
-                <h6><?php _e('We are also available for online sessions.') ?></h6>
+                <h6><?php _e('We are also available for online sessions.', 'metamedicina') ?></h6>
                 <a class="btn btn-primary" href="?cities=<?=get_page_by_title('Online',OBJECT,'city')->ID?>">
                     <?php _e('Find the Consultants who also receive online', 'metamedicina')?>    
                 </a>
