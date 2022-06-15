@@ -16,6 +16,11 @@
 
 @media screen and (max-width:1024px) {
 
+    .email-col a{
+        line-height: 19px;
+        display: inline-block;
+    }
+
 
     #menu ul li:hover > a{
         color: #000;
