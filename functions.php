@@ -447,7 +447,7 @@ function get_lang_email(){
         while( have_rows('emails', 'option') ): the_row(); 
 
             $email = get_sub_field('email');
-            echo "<a href='mailto:$email'>$email</a>&nbsp;";
+            echo "<a href='mailto:$email'>$email</a>";
             
             
         endwhile;
