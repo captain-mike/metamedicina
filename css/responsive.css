@@ -21,6 +21,11 @@
         display: inline-block;
     }
 
+    .wpml-ls-legacy-list-horizontal .wpml-ls-flag {
+        width: 26px;
+        height: auto;
+    }
+
 
     #menu ul li:hover > a{
         color: #000;
