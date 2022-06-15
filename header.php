@@ -27,7 +27,8 @@ $post_slug = $post->post_name;
                 <div class="container">
                     <div class="row">
                         <div class="col-12 d-block d-sm-flex text-center col-sm-6 email-col">
-                            <span class="d-none d-sm-block"><?=_('Contact us')?>: </span><a href="mailto:italia@metamedecine.com">italia@metamedecine.com</a>
+                            <span class="d-none d-sm-block"><?=_('Contact us')?>: </span>
+                            <?=get_lang_email()?>
                         </div>
                         <div class="col-12 d-block d-sm-flex text-center col-sm-6 language-col">
                             <?php do_action('wpml_add_language_selector'); ?> 

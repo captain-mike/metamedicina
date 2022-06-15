@@ -376,6 +376,27 @@ function metamedicina_widgets_init(){
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
     ));
+    
+    register_sidebar(array(
+        'name' => esc_html__('email', 'metamedicina'),
+        'id' => 'email-area',
+        'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ));
+}
+
+
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'Site options',
+		'menu_title'	=> 'Email',
+		'menu_slug' 	=> 'email-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
 }
 
 add_action('wp_head', 'metamedicina_pingback_header');
@@ -418,6 +439,20 @@ function getCityNames($arr){
         }
         return $str;
     }
+}
+
+function get_lang_email(){
+
+    if( have_rows('emails', 'option') ): 
+        while( have_rows('emails', 'option') ): the_row(); 
+
+            $email = get_sub_field('email');
+            echo "<a href='mailto:$email'>$email</a>";
+            
+            
+        endwhile;
+    endif; 
+    
 }
 
 include('inc/cpt.php');
