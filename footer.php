@@ -35,7 +35,7 @@
     <div id="copyright" class="grey_bg text-center py-3">
         <div class="container ">
             <div class="custom">
-                <a href="/privacy-policy.html">PRIVACY POLICY</a> | <a href="/cookie-policy.html">COOKIE POLICY</a>
+                <a href="/privacy-policy">PRIVACY POLICY</a> | <a href="/cookie-policy">COOKIE POLICY</a>
                 <p >Copyright © 2018 Metamedicina di Claudia Rainville • Tutti i diritti riservati</p>
                 <small>Sito web realizzato da <a href="http://wp-admin.it/" target="_blank" rel="noopener noreferrer" title="Siti Web a Reggio Emilia">WP-Admin</a></small>
             </div>
